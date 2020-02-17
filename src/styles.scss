@@ -28,5 +28,9 @@ $WaveScrape-theme: mat-light-theme($WaveScrape-primary, $WaveScrape-accent, $Wav
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { 
+  height: 100%; 
+  background-color: #01579B;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

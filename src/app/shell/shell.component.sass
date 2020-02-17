@@ -6,22 +6,28 @@ $font--read: 'Nunito', sans-serif
   
 $color--primary-dark: #002F6C
 $color--white: #efefef
+$color--orange: #FF8A50
 
-mat-toolbar
+mat-toolbar-row
+.toolbar--nav-top
   background-color: $color--primary-dark
-  color: $color--white
+  color: $color--white  
+  .nav-logo
+    font-family: $font--logo
+    font-size: 28px
+    text-align: center
+  .nav-profile
+    mat-icon
+      font-size: 30px
+      float: right
+      margin-top: -10px
 
-.nav-logo
-  font-family: $font--logo
-  font-size: 28px
-  
-
-.flexbox  
+.flexbox--top
   flex-direction: row
   justify-content: space-between
   align-items: center
   &-item
-    // background-color: red
+    // background-color: red // indicator    
     width: 100%
   nav
     &-right
@@ -30,5 +36,33 @@ mat-toolbar
     &-left
 
   
-body
-  background-color: red
+.toolbar--nav-bottom
+  height: 75px
+  background-color: $color--primary-dark
+  color: $color--white
+  bottom: 0
+  position: fixed
+  mat-icon
+    font-size: 28px    
+    margin-top: 12px
+    margin-left: 40%
+
+.flex--bottom
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  &-item
+    // background-color: green  // indicator
+    // border: 1px solid black // indicator
+    width: 100%
+.icon-outline
+  // background-color: red // indicator
+  width: 40px
+  height: 40px
+  border: 3px solid $color--white
+  border-radius: 15px
+  margin-top: 5px
+  margin-left: 40%
+  mat-icon
+    margin-top: 5px
+    margin-left: 6px
