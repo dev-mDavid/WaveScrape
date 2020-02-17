@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-mmt-list-item',
+  selector: 'mmt-list-item',
   templateUrl: './mmt-list-item.component.html',
   styleUrls: ['./mmt-list-item.component.sass']
 })
