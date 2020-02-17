@@ -1,7 +1,9 @@
 @use '../share/colors'
+@use '../share/fonts'
 
 .mmt-list-item
   &--container
+    // overflow: hidden
     width: 100%
     height: 50px
     // background-color: red // indicator
@@ -14,7 +16,34 @@
     background-color: colors.$color--blue
     width: 90%
     margin-left: 5%
-    height: 32px
     border-radius: 20px 0px 20px 20px
     box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
+
+.flexbox
+  &--row-first
+    // display: inline-block
+    margin-left: 20px
+    // background-color: red
+    // width: 100%
+  &--item
+    height: 32px
+    display: inline-block
+
+.star--icon
+  margin-top: 10px
+  // width: 50px
+
+.mmt-list-item--title
+  padding: auto 0
+  h3 
+    font-size: fonts.$size--h3
+    font-family: fonts.$font--display
+    // vertical-align: center
+  // margin-left: 500px
   
+.expand--icon  
+  margin-top: 5px
+  margin-right: 10px
+  float: right
+  // right: 0
+  // position: relative  
