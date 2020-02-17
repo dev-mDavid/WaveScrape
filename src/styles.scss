@@ -1,3 +1,5 @@
+@use 'src/app/share/colors';
+@use 'src/app/share/fonts';
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -26,11 +28,17 @@ $WaveScrape-theme: mat-light-theme($WaveScrape-primary, $WaveScrape-accent, $Wav
 // that you are using.
 @include angular-material-theme($WaveScrape-theme);
 
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, 
+and also import/@use other style files 
+(do this at the top of the file)*/
 
 html, body { 
   height: 100%; 
-  background-color: #01579B;
+  background-color: colors.$color--blue;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: fonts.$font--read
+}
+
 
