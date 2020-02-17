@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "WaveScrape": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "WaveScrape"
+    }
+  },
+  "defaultProject": "WaveScrape",
+  "cli": {
+    "analytics": "9ed057e7-51ce-4560-bf63-a890a11925e1"
+  }
 }
