@@ -1,19 +1,12 @@
-// font-family: 
-// font-family: 'ABeeZee', sans-serif;
-  
-$font--logo: 'Marmelad', sans-serif
-$font--read: 'Nunito', sans-serif
-  
-$color--primary-dark: #002F6C
-$color--white: #efefef
-$color--orange: #FF8A50
+@use '../share/colors'
+@use '../share/fonts'
 
 mat-toolbar-row
 .toolbar--nav-top
-  background-color: $color--primary-dark
-  color: $color--white  
+  background-color: colors.$color--primary-dark
+  color: colors.$color--white  
   .nav-logo
-    font-family: $font--logo
+    font-family: fonts.$font--logo
     font-size: 28px
     text-align: center
   .nav-profile
@@ -38,8 +31,8 @@ mat-toolbar-row
   
 .toolbar--nav-bottom
   height: 75px
-  background-color: $color--primary-dark
-  color: $color--white
+  background-color: colors.$color--primary-dark
+  color: colors.$color--white
   bottom: 0
   position: fixed
   mat-icon
@@ -59,7 +52,7 @@ mat-toolbar-row
   // background-color: red // indicator
   width: 40px
   height: 40px
-  border: 3px solid $color--white
+  border: 3px solid colors.$color--white
   border-radius: 15px
   margin-top: 5px
   margin-left: 40%
