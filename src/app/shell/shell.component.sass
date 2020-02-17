@@ -1,4 +1,8 @@
-// $font--display
+// font-family: 
+// font-family: 'ABeeZee', sans-serif;
+  
+$font--logo: 'Marmelad', sans-serif
+$font--read: 'Nunito', sans-serif
   
 $color--primary-dark: #002F6C
 $color--white: #efefef
@@ -6,4 +10,25 @@ $color--white: #efefef
 mat-toolbar
   background-color: $color--primary-dark
   color: $color--white
+
+.nav-logo
+  font-family: $font--logo
+  font-size: 28px
   
+
+.flexbox  
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  &-item
+    // background-color: red
+    width: 100%
+  nav
+    &-right
+    &-center
+      text-align: center
+    &-left
+
+  
+body
+  background-color: red
