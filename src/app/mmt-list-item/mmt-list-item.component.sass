@@ -20,29 +20,53 @@
     box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
 
 .flexbox
-  &--row-first
-    // display: inline-block
-    margin-left: 20px
-    // background-color: red
-    // width: 100%
-    border: 2px dashed red // indicator
-    height: 32px    
+  &--row
+    &-first
+      // display: inline-block
+      margin-left: 20px
+      // background-color: red
+      // width: 100%
+      // border: 2px dashed red // indicator ----------------------
+      // height: 32px      
+      padding-top: 0px
+      .mmt-list-item--title
+        margin-left: 25px
+        // padding: auto 0
+        // margin-top: -200px
+        // padding-top: 5px
+        // margin-top: -10px
+        // top: 0px
+          position: relative
+          margin-top: -10px
+        h3 
+          // padding-bottom: 0px
+          margin-bottom: 0px
+          // line-height: 0px
+          font-size: fonts.$size--h3
+          font-family: fonts.$font--display
+        // vertical-align: center
+        // margin-left: 500px
 
-  &--item
-    border: 2px dashed blue // indicator
-    display: inline-block
+    &-second  
+      width: 80%
+      margin-left: 55px
+    &-third
+      margin: 5px auto
+      margin-left: 20px
+      h3
+        font-size: (fonts.$size--h3 - 2px)
+        display: inline-flex
+        margin: auto 5px
+
+.flexbox--item
+  border: 2px dashed blue // indicator ----------------------
+  display: inline-block
 
 .star--icon
-  margin-top: 10px
+  // margin-top: 25px
+  padding-top: 15px
   // width: 50px
 
-.mmt-list-item--title
-  padding: auto 0
-  h3 
-    font-size: fonts.$size--h3
-    font-family: fonts.$font--display
-    // vertical-align: center
-  // margin-left: 500px
   
 .expand--icon  
   margin-top: 5px
