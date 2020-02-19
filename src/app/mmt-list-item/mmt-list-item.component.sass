@@ -26,9 +26,10 @@
 .l-item-contents__flex-row
   // width: 100%
   // height: 100%
-  margin: 15px
+  // margin: 15px
   // @include ind__lo(parent, yellow)    
   display: flex
+  align-items: flex-start
   
   .l-flex-row__items
     // @include ind__lo(child, yellow)
@@ -37,24 +38,38 @@
   .l-flex-row-item
     &__1
       // @include ind__lo(child, green)
-      flex-basis: 50px
+      $squareCenter: 50px
+      flex-basis: $squareCenter
+      height: $squareCenter
+      display: flex
       .l-icon
-        margin-top:10px
+        margin: auto
     &__2
-      @include ind__lo(child, red)
+      // @include ind__lo(child, red)
       flex: 1
     &__3
-      @include ind__lo(child, orange)
-      flex-basis: 200px
+      // @include ind__lo(child, orange)
+      $squareCenter: 50px
+      flex-basis: $squareCenter
+      height: $squareCenter
+      display: flex
       .l-icon
         float: right
         // margin-top: 10px
+        margin: auto
 
 .c-icon
   &__star
     font-size: 24px
   &__expand-more
     font-size: 24px
+
+.l-dynamic-data__flex-row    
+  .l-flex-row__items
+  .l-flex-row-item
+    &__1
+    &__2
+    &__3
 // .mmt-list-item
   &--container
     // overflow: hidden
