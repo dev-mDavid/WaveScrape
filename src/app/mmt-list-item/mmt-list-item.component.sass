@@ -2,7 +2,7 @@
 @use '../share/fonts'
 
 /* create a mixin for a parent and a child
-@mixin ind__lo($relation: parent, $color: red, $thickness: 3px) // layout indicator
+@mixin ind__lo($relation: parent, $color: red, $thickness: 3px) // layout indicator     
 
   @if $relation == parent
     border: $thickness dashed $color
@@ -11,12 +11,51 @@
   @else
     @error "unknow relation #{relation}"
   
+.c-item
+  height: 100px // ind
+  // @include ind__lo
+  width: 100%
 
- 
+  &--outie
+    height: 100px // ind
+    margin: 10px 5% // ind
+    // @include ind__lo(parent, green)
+    border-radius: 20px 0px 20px 20px
+    box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
   
+.l-item-contents__flex-row
+  // width: 100%
+  // height: 100%
+  margin: 15px
+  // @include ind__lo(parent, yellow)    
+  display: flex
   
+  .l-flex-row__items
+    // @include ind__lo(child, yellow)
 
-.mmt-list-item
+  
+  .l-flex-row-item
+    &__1
+      // @include ind__lo(child, green)
+      flex-basis: 50px
+      .l-icon
+        margin-top:10px
+    &__2
+      @include ind__lo(child, red)
+      flex: 1
+    &__3
+      @include ind__lo(child, orange)
+      flex-basis: 200px
+      .l-icon
+        float: right
+        // margin-top: 10px
+
+.c-icon
+  &__star
+    font-size: 24px
+  &__expand-more
+    font-size: 24px
+// .mmt-list-item
   &--container
     // overflow: hidden
     width: 100%
@@ -36,7 +75,7 @@
     border-radius: 20px 0px 20px 20px
     box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
 
-.flexbox
+// .flexbox
   &--row
     &-first
       // display: inline-block
@@ -75,20 +114,19 @@
         display: inline-flex
         margin: auto 5px
 
-.flexbox--item
+// .flexbox--item
   border: 2px dashed blue // indicator ----------------------
   display: inline-block
 
-.star--icon
+// .star--icon
   // margin-top: 25px
   padding-top: 15px
   // width: 50px
 
   
-.expand--icon  
+// .expand--icon  
   margin-top: 5px
   margin-right: 10px
   float: right
   // right: 0
   // position: relative  
-
