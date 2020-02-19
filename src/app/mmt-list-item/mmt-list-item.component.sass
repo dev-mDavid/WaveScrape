@@ -10,34 +10,26 @@
     box-shadow: $thickness $thickness 0px $color inset, (-$thickness) (-$thickness) 0px $color inset
   @else
     @error "unknow relation #{relation}"
-  
-.c-item
-  height: 100px // ind
-  // @include ind__lo
-  width: 100%
 
+.h-ind__lo
+  @include ind__lo(parent)
+  &--parent
+    @include ind__lo(parent)
+  &--child 
+    @include ind__lo(child)
+
+.c-item
+  width: 100%
   &--outie
-    height: 100px // ind
-    margin: 10px 5% // ind
-    // @include ind__lo(parent, green)
+    margin: 10px 5% 0px 
     border-radius: 20px 0px 20px 20px
     box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
   
 .l-item-contents__flex-row
-  // width: 100%
-  // height: 100%
-  // margin: 15px
-  // @include ind__lo(parent, yellow)    
   display: flex
-  align-items: flex-start
-  
   .l-flex-row__items
-    // @include ind__lo(child, yellow)
-
-  
   .l-flex-row-item
     &__1
-      // @include ind__lo(child, green)
       $squareCenter: 50px
       flex-basis: $squareCenter
       height: $squareCenter
@@ -45,17 +37,14 @@
       .l-icon
         margin: auto
     &__2
-      // @include ind__lo(child, red)
       flex: 1
     &__3
-      // @include ind__lo(child, orange)
       $squareCenter: 50px
       flex-basis: $squareCenter
       height: $squareCenter
       display: flex
       .l-icon
         float: right
-        // margin-top: 10px
         margin: auto
 
 .c-icon
@@ -64,84 +53,49 @@
   &__expand-more
     font-size: 24px
 
-.l-dynamic-data__flex-row    
-  .l-flex-row__items
-  .l-flex-row-item
+.l-dynamic-data__flex-col
+  display: flex
+  flex-direction: column
+
+  .l-flex-col__items
+  .l-flex-col-item
     &__1
+      padding-top: 12px
+      padding-left: 6px
+      .l-text
+        margin-bottom: 0        
     &__2
     &__3
-// .mmt-list-item
-  &--container
-    // overflow: hidden
-    width: 100%
-    height: 50px
-    @include ind__lo(parent, green)
-    @include ind__lo(child, green)
-    // background-color: red // indicator
-    padding-top: 10px
-    // overflow: none
-    margin-top: 200px // indicator
-  &--outie  
-    // padding: 10px
-    // background-color: colors.$color--orange
-    background-color: colors.$color--blue
-    width: 90%
-    margin-left: 5%
-    border-radius: 20px 0px 20px 20px
-    box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
+      // @include ind__lo(parent)            
+      flex-basis: auto
 
-// .flexbox
-  &--row
-    &-first
-      // display: inline-block
-      margin-left: 20px
-      // background-color: red
-      // width: 100%
-      // border: 2px dashed red // indicator ----------------------
-      // height: 32px      
-      padding-top: 0px
-      .mmt-list-item--title
-        margin-left: 25px
-        // padding: auto 0
-        // margin-top: -200px
-        // padding-top: 5px
-        // margin-top: -10px
-        // top: 0px
-          position: relative
-          margin-top: -10px
-        h3 
-          // padding-bottom: 0px
-          margin-bottom: 0px
-          // line-height: 0px
-          font-size: fonts.$size--h3
-          font-family: fonts.$font--display
-        // vertical-align: center
-        // margin-left: 500px
+.c-text
+  &__item-title
+    font-size: 20px
 
-    &-second  
-      width: 80%
-      margin-left: 55px
-    &-third
-      margin: 5px auto
-      margin-left: 20px
-      h3
-        font-size: (fonts.$size--h3 - 2px)
-        display: inline-flex
-        margin: auto 5px
-
-// .flexbox--item
-  border: 2px dashed blue // indicator ----------------------
-  display: inline-block
-
-// .star--icon
-  // margin-top: 25px
-  padding-top: 15px
-  // width: 50px
+.l-quick-preview__flex-row
+  // @include ind__lo(parent)
+  display: flex
+  flex-wrap: wrap
+  
+  .l-flex-row__items    
+    height: 30px
+  .l-flex-row-item
+    &__icon
+      // @include ind__lo(child, orange)
+      flex-basis: 50px
+      padding-left: 6px
+    &__text   
+      // @include ind__lo(child, yellow)
+      flex-basis: 1
+      margin: 0 5px
+      h4
+        margin-top: 2px
+        
+.c-icon__done
+  font-size: 24px
+  color: blue
+.c-text__quick-preview
+  font-size: 18px
 
   
-// .expand--icon  
-  margin-top: 5px
-  margin-right: 10px
-  float: right
-  // right: 0
-  // position: relative  
