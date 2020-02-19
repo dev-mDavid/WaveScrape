@@ -1,11 +1,28 @@
 @use '../share/colors'
 @use '../share/fonts'
 
+/* create a mixin for a parent and a child
+@mixin ind__lo($relation: parent, $color: red, $thickness: 3px) // layout indicator
+
+  @if $relation == parent
+    border: $thickness dashed $color
+  @else if $relation == child
+    box-shadow: $thickness $thickness 0px $color inset, (-$thickness) (-$thickness) 0px $color inset
+  @else
+    @error "unknow relation #{relation}"
+  
+
+ 
+  
+  
+
 .mmt-list-item
   &--container
     // overflow: hidden
     width: 100%
     height: 50px
+    @include ind__lo(parent, green)
+    @include ind__lo(child, green)
     // background-color: red // indicator
     padding-top: 10px
     // overflow: none
