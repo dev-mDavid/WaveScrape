@@ -1,0 +1,15 @@
+@mixin ind__lo($relation: parent, $color: red, $thickness: 3px) // layout indicator     
+
+  @if $relation == parent
+    border: $thickness dashed $color
+  @else if $relation == child
+    box-shadow: $thickness $thickness 0px $color inset, (-$thickness) (-$thickness) 0px $color inset
+  @else
+    @error "unknow relation #{relation}"
+
+.h-ind__lo
+  @include ind__lo(parent)
+  &--parent
+    @include ind__lo(parent)
+  &--child 
+    @include ind__lo(child)
