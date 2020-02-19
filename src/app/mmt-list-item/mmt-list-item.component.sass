@@ -1,3 +1,4 @@
+@use '../share/helpers' as h-
 @use '../share/colors'
 @use '../share/fonts'
 
@@ -7,6 +8,9 @@
     margin: 10px 5% 20px
     border-radius: 20px 0px 20px 20px
     box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
+  &--innie
+    box-shadow: -4px -4px 10px 2px inset colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px inset colors.$color--blue-darken-rgba30
+
   
 .l-item-contents__flex-row
   display: flex

@@ -2,7 +2,10 @@
 
 
 <div class="c-item">
-  <div class="c-item--outie">
+  <div 
+    class="c-item--outie"
+    [ngClass]="expandState ? 'c-item--outie' : 'c-item--innie'"
+  >
     <div class="l-item-contents__flex-row">
       <div class="l-flex-row__items l-flex-row-item__1">
         <mat-icon class="l-icon c-icon__star">star</mat-icon>
@@ -38,7 +41,10 @@
         
       </div>
 
-      <div class="l-flex-row__items l-flex-row-item__3">
+      <div 
+        class="l-flex-row__items l-flex-row-item__3"
+        (click)="toggleExpand()"
+      >
         <mat-icon class="l-icon c-icon__expand-more">expand_more</mat-icon>
       </div>
       
