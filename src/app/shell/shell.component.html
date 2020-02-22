@@ -113,28 +113,65 @@
     <mat-toolbar>
       <mat-toolbar-row>
         <div class="l-toolbar--section l-toolbar--section__1">
-          <span>Wave Scrape</span>
+          <span class="c-title">Wave Scrape</span>
         </div>
         <div class="l-toolbar--section l-toolbar--section__2">
-          <div class="l-nav">
-            <div class="l-nav__link l-nav-link__1">
-              <span>Search</span>
+          <div class="l-nav c-nav__links">
+            <div class="l-nav__link l-nav-link__1 c-nav__links">
+              <a>
+                <!-- <mat-icon>search</mat-icon> &nbsp; -->
+                <span>Search</span>
+              </a>
             </div>
-            <div class="l-nav__link l-nav-link__2">
-              <span>Map</span>
+            <div class="l-nav__link l-nav-link__2 c-nav__links">
+              <a>
+                <!-- <mat-icon>map</mat-icon> &nbsp; -->
+                <span>Map</span>
+              </a>
             </div>
-            <div class="l-nav__link l-nav-link__3">
-              <span>Current</span>
+            <div class="l-nav__link l-nav-link__3 c-nav__links">
+              <a>
+                <!-- <mat-icon>waves</mat-icon> &nbsp; -->
+                <span>Current</span>
+              </a>
             </div>
-            <div class="l-nav__link l-nav-link__4">
-              <span>Forecast</span>
+            <div class="l-nav__link l-nav-link__4 c-nav__links">
+              <a>
+                <!-- <mat-icon>fast_forward</mat-icon> &nbsp; -->
+                <span>Forecast</span>
+              </a>
             </div>
-            <div class="l-nav__link l-nav-link__5">
-              <span>Prefrences</span>
+            <div class="l-nav__link l-nav-link__5 c-nav__links">
+              <a>
+                <!-- <mat-icon>settings</mat-icon> &nbsp; -->
+                <span>Prefrences</span>
+              </a>
             </div>
           </div>
         </div>
-        <div class="l-toolbar--section l-toolbar--section__3"></div>
+        <div class="l-toolbar--section l-toolbar--section__3">
+          <button 
+            class="c-profile__button"
+            mat-icon-button
+            [matMenuTriggerFor]="profile">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+            <mat-menu #profile="matMenu">
+              <button mat-menu-item>
+                <!-- <mat-icon></mat-icon> -->
+                <span>Login/Logout</span>
+              </button>
+              <button mat-menu-item>
+                <!-- <mat-icon></mat-icon> -->
+                <span>About</span>
+              </button>
+              <button mat-menu-item>
+                <!-- <mat-icon></mat-icon> -->
+                <span>New Features</span>
+              </button>
+            </mat-menu>
+          
+        </div>
       </mat-toolbar-row>
     </mat-toolbar>
   </div>

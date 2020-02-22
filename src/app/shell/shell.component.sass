@@ -114,19 +114,55 @@
         display: flex
         .l-toolbar--section
           &__1
+            // @include h-.ind__lo(parent, green)
             flex: 1
           &__2
-            flex: 2
+            flex: 3
             .l-nav
               display: flex
+              justify-content: center
               .l-nav__link
-                flex: 1
+                display: flex
+                flex: 1                                
+                flex-basis: auto
+                margin: auto 5px
+                // @include h-.ind__lo()
                 &__1
                 &__2
                 &__3
                 &__4
                 &__5
+                a // l- layout
+                  display: flex
+                  margin: auto
+                  mat-icon // l- layout
+                    // @include h-.ind__lo(child, orange)
+                    margin: auto
+                    // margin: auto 0
           &__3
+            @include h-.ind__lo()
             flex: 1
+            display: flex
+            button
+              justify-items: flex-end
+              justify-self: flex-end
+                    
+
     mat-toolbar-row // c- content
       background-color: colors.$color--darkPrimary
+
+    .c-title
+      @extend .c-global__title
+
+    .c-nav__links
+      color: colors.$color--white
+      font-size: 14px
+      text-transform: uppercase
+      letter-spacing: 1.2px
+    
+    .c-profile__button
+      background-color: colors.$color--darkPrimary
+      border: none
+
+      mat-icon
+        @extend .c-global__icons
