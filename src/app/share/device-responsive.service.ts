@@ -9,7 +9,7 @@ import { map, shareReplay } from "rxjs/operators";
 export class DeviceResponsiveService {
 
   /* Makes the device size into an observable for dynamic responsiveness */     
-  whatDevice(deviceType: string): Observable<boolean> {
+  whatDevice(deviceType: string[]): Observable<boolean> {
     return this.breakpointObserver.observe(deviceType)
       .pipe(
         map(result => result.matches),
