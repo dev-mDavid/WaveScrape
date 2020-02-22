@@ -15,9 +15,9 @@ export class ShellComponent implements OnInit {
   constructor(
     DRS: DeviceResponsiveService
   ) {
-    this.isHandset$ = DRS.whatDevice([Breakpoints.HandsetPortrait]);
-    this.isTablet$ = DRS.whatDevice([Breakpoints.Tablet]);
-    this.isWeb$ = DRS.whatDevice([Breakpoints.Web]);
+    this.isHandset$ = DRS.whatDevice([Breakpoints.XSmall]);
+    this.isTablet$ = DRS.whatDevice([Breakpoints.Small]);
+    this.isWeb$ = DRS.whatDevice([Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge]);
   }
 
   ngOnInit(): void {
