@@ -1,10 +1,9 @@
 <div class="mmt-nav-shell">
   
-  
-  <!-- mobile/isHandsetPortrait$ -->
+  <!-- mobile/isHandsetPortrait$ || not tablet/isTabletLandscape -->
   <div 
     class="f-mobile"
-    *ngIf="(isHandsetPortrait$ | async) === true" >
+    *ngIf="(isTabletLandscape$ | async) === false" >
     <mat-toolbar>
       <mat-toolbar-row 
       class="c-mobile-toolbar--nav-top l-mobile-flexbox--top" >
@@ -26,6 +25,29 @@
         <div class="flex--bottom-item"><mat-icon>fast_forward</mat-icon></div>
         <div class="flex--bottom-item"><mat-icon>settings</mat-icon></div>
       </mat-toolbar-row>  
+    </mat-toolbar>
+  </div>
+
+  <!-- tablet/isTabletLandscape$ -->
+  <div 
+    class="f-tablet"
+    *ngIf="(isTabletLandscape$ | async) === true">    
+    <mat-toolbar>
+      <mat-toolbar-row  class="l-top-toolbar c-top-toolbar">
+        <div class="l-toolbar__section l-toolbar__section--1"></div>
+        <div class="l-toolbar__section l-toolbar__section--2">
+          <div class="l-title c-title">Wave Scrape</div>
+        </div>
+        <div class="l-toolbar__section l-toolbar__section--3">
+          <button class="c-nav__button">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <button class="c-nav__button">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          
+        </div>
+      </mat-toolbar-row>
     </mat-toolbar>
   </div>
 

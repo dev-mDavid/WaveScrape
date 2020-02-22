@@ -2,11 +2,22 @@
 @use '../share/colors'
 @use '../share/fonts'
 
+/* Reusable/Global Variables for this Component */
+.c-global__title
+  color: colors.$color--white  
+  font-size: 28px
+  font-family: fonts.$font--logo
+
+.c-global__icons
+  color: colors.$color--white
+  font-size: 30px
+  
+  
+/* Local Variables for this Component by Device Sizes */  
 .mmt-nav-shell  
   .f-mobile  
     mat-toolbar-row
     .c-mobile-toolbar--nav-top
-      @include h-.ind__lo()
       background-color: colors.$color--darkPrimary
       color: colors.$color--white  
       .nav-logo
@@ -15,7 +26,7 @@
         text-align: center
       .nav-profile
         mat-icon
-          font-size: 30px
+          @extend .c-global__icons          
           float: right
           margin-top: -4px
           margin-right: 15px
@@ -65,3 +76,34 @@
         margin-top: 5px
         margin-left: 6px
 
+  .f-tablet
+    .l-top-toolbar
+      display: flex
+      
+      .l-toolbar__section
+        flex: 1
+        
+        &--1
+        &--2
+          display: flex
+          .l-title
+            margin: auto            
+        &--3
+          display: flex
+          justify-content: flex-end          
+          button // l- layout
+            margin: auto 20px
+          
+    .c-top-toolbar
+      width: 100%
+      background-color: colors.$color--darkPrimary
+    
+    .c-title
+      @extend .c-global__title      
+    
+    .c-nav__button
+      background-color: colors.$color--darkPrimary
+      border: none
+
+    mat-icon // c- content
+      @extend .c-global__icons
