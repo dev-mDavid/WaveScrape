@@ -39,3 +39,4 @@ export class ComponentName implements OnInit {
   ngOnInit(): void {
   }
 }
+*/
