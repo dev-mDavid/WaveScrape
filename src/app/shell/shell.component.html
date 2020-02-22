@@ -38,20 +38,74 @@
         <div class="l-toolbar__section l-toolbar__section--2">
           <div class="l-title c-title">Wave Scrape</div>
         </div>
+
         <div class="l-toolbar__section l-toolbar__section--3">
-          <button class="c-nav__button">
+          <button 
+          class="c-nav__button"
+          mat-icon-button
+          [matMenuTriggerFor]="profile" >
             <mat-icon>account_circle</mat-icon>
           </button>
-          <button class="c-nav__button">
+            <mat-menu #profile="matMenu">
+
+              <button mat-menu-item>
+                <!-- <mat-icon></mat-icon> -->
+                <span>Login/Logout</span>
+              </button>
+
+              <button mat-menu-item>
+                <!-- <mat-icon></mat-icon> -->
+                <span>About</span>
+              </button>
+
+              <button mat-menu-item>
+                <!-- <mat-icon></mat-icon> -->
+                <span>New Features</span>
+              </button>
+            </mat-menu>
+
+          <button 
+          class="c-nav__button"
+          mat-icon-button
+          [matMenuTriggerFor]="nav" >
             <mat-icon>more_vert</mat-icon>
           </button>
-          
+            <mat-menu #nav="matMenu">
+              
+              <button mat-menu-item>
+                <mat-icon>search</mat-icon>
+                <span>Search</span>
+              </button>
+
+              <button mat-menu-item>
+                <mat-icon>map</mat-icon>
+                <span>Map</span>
+              </button>
+
+              <button mat-menu-item>
+                <mat-icon>waves</mat-icon>
+                <span>Current</span>
+              </button>
+
+              <button mat-menu-item>
+                <mat-icon>fast_forward</mat-icon>
+                <span>Forecast</span>
+              </button>
+
+              <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Preferences</span>
+              </button>
+
+            </mat-menu>
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
   </div>
 
 
+  <!-- desktop/laptop ||  -->
+  
 
   <ng-content></ng-content>
 </div>
