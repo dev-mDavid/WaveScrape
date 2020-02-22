@@ -14,7 +14,7 @@ const components = [
 const modules = [
   CommonModule,
   MatToolbarModule,
-  MatIconModule,
+  MatIconModule,  
 ];
 @NgModule({
   declarations: [...components],
