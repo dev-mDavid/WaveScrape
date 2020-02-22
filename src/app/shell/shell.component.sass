@@ -111,11 +111,12 @@
   .f-desktop
     mat-toolbar // l- layout
       mat-toolbar-row // l- layout
-        display: flex
+        display: flex        
         .l-toolbar--section
           &__1
             // @include h-.ind__lo(parent, green)
             flex: 1
+            margin-left: 20px
           &__2
             flex: 3
             .l-nav
@@ -125,7 +126,7 @@
                 display: flex
                 flex: 1                                
                 flex-basis: auto
-                margin: auto 5px
+                // margin: auto 5px
                 // @include h-.ind__lo()
                 &__1
                 &__2
@@ -140,12 +141,11 @@
                     margin: auto
                     // margin: auto 0
           &__3
-            @include h-.ind__lo()
+            // @include h-.ind__lo()
             flex: 1
             display: flex
-            button
-              justify-items: flex-end
-              justify-self: flex-end
+            justify-content: flex-end          
+            margin-right: 20px
                     
 
     mat-toolbar-row // c- content
