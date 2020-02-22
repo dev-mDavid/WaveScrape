@@ -1,62 +1,67 @@
+@use '../share/helpers' as h-
 @use '../share/colors'
 @use '../share/fonts'
 
-mat-toolbar-row
-.toolbar--nav-top
-  background-color: colors.$color--darkPrimary
-  color: colors.$color--white  
-  .nav-logo
-    font-family: fonts.$font--logo
-    font-size: 28px
-    text-align: center
-  .nav-profile
-    mat-icon
-      font-size: 30px
-      float: right
-      margin-top: -4px
-      margin-right: 15px
+.mmt-nav-shell  
+  .f-mobile  
+    mat-toolbar-row
+    .c-mobile-toolbar--nav-top
+      @include h-.ind__lo()
+      background-color: colors.$color--darkPrimary
+      color: colors.$color--white  
+      .nav-logo
+        font-family: fonts.$font--logo
+        font-size: 28px
+        text-align: center
+      .nav-profile
+        mat-icon
+          font-size: 30px
+          float: right
+          margin-top: -4px
+          margin-right: 15px
 
-.flexbox--top
-  flex-direction: row
-  justify-content: space-between
-  align-items: center
-  &-item
-    // background-color: red // indicator    
-    width: 100%
-  nav
-    &-right
-    &-center
-      text-align: center
-    &-left
+    .l-mobile-flexbox--top
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+      &-item
+        // background-color: red // indicator    
+        width: 100%
+      nav
+        &-right
+        &-center
+          text-align: center
+        &-left
 
-  
-.toolbar--nav-bottom
-  height: 75px
-  background-color: colors.$color--darkPrimary
-  color: colors.$color--white
-  bottom: 0
-  position: fixed
-  mat-icon
-    font-size: 28px    
-    margin-top: 12px
-    margin-left: 40%
+      
+    .toolbar--nav-bottom
+      height: 75px
+      background-color: colors.$color--darkPrimary
+      color: colors.$color--white
+      bottom: 0
+      position: fixed
+      mat-icon
+        font-size: 28px    
+        margin-top: 12px
+        margin-left: 40%
 
-.flex--bottom
-  flex-direction: row
-  justify-content: space-between
-  align-items: center
-  &-item
-    // background-color: green  // indicator
-    // border: 1px solid black // indicator
-    width: 100%
-.icon-outline
-  // background-color: red // indicator
-  width: 40px
-  height: 40px
-  border: 2px solid colors.$color--white
-  border-radius: 15px
-  margin-top: 5px
-  margin-left: 40%
-  mat-icon
-    margin-top: 5px
-    margin-left: 6px
+    .flex--bottom
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+      &-item
+        // background-color: green  // indicator
+        // border: 1px solid black // indicator
+        width: 100%
+    .icon-outline
+      // background-color: red // indicator
+      width: 40px
+      height: 40px
+      border: 2px solid colors.$color--white
+      border-radius: 15px
+      margin-top: 5px
+      margin-left: 40%
+      mat-icon
+        margin-top: 5px
+        margin-left: 6px
+
