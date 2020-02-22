@@ -3,7 +3,7 @@
   <!-- mobile/isHandsetPortrait$ || not tablet/isTabletLandscape -->
   <div 
     class="f-mobile"
-    *ngIf="(isTabletLandscape$ | async) === false" >
+    *ngIf="(isHandsetPortrait$ | async) === true">
     <mat-toolbar>
       <mat-toolbar-row 
       class="c-mobile-toolbar--nav-top l-mobile-flexbox--top" >
@@ -28,10 +28,13 @@
     </mat-toolbar>
   </div>
 
-  <!-- tablet/isTabletLandscape$ -->
+  <!-- tablet/isTabletLandscape$ || not phone -->
   <div 
     class="f-tablet"
-    *ngIf="(isTabletLandscape$ | async) === true">    
+    *ngIf="
+    ((isHandsetPortrait$ | async) === false) &&
+    ((isDesktopSize$ | async) === false) 
+    ">    
     <mat-toolbar>
       <mat-toolbar-row  class="l-top-toolbar c-top-toolbar">
         <div class="l-toolbar__section l-toolbar__section--1"></div>
@@ -103,9 +106,38 @@
     </mat-toolbar>
   </div>
 
-
   <!-- desktop/laptop ||  -->
-  
+  <div 
+  class="f-desktop"
+  *ngIf="(isDesktopSize$ | async) === true" >
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <div class="l-toolbar--section l-toolbar--section__1">
+          <span>Wave Scrape</span>
+        </div>
+        <div class="l-toolbar--section l-toolbar--section__2">
+          <div class="l-nav">
+            <div class="l-nav__link l-nav-link__1">
+              <span>Search</span>
+            </div>
+            <div class="l-nav__link l-nav-link__2">
+              <span>Map</span>
+            </div>
+            <div class="l-nav__link l-nav-link__3">
+              <span>Current</span>
+            </div>
+            <div class="l-nav__link l-nav-link__4">
+              <span>Forecast</span>
+            </div>
+            <div class="l-nav__link l-nav-link__5">
+              <span>Prefrences</span>
+            </div>
+          </div>
+        </div>
+        <div class="l-toolbar--section l-toolbar--section__3"></div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
 
   <ng-content></ng-content>
 </div>

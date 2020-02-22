@@ -107,3 +107,26 @@
 
     mat-icon // c- content
       @extend .c-global__icons
+
+  .f-desktop
+    mat-toolbar // l- layout
+      mat-toolbar-row // l- layout
+        display: flex
+        .l-toolbar--section
+          &__1
+            flex: 1
+          &__2
+            flex: 2
+            .l-nav
+              display: flex
+              .l-nav__link
+                flex: 1
+                &__1
+                &__2
+                &__3
+                &__4
+                &__5
+          &__3
+            flex: 1
+    mat-toolbar-row // c- content
+      background-color: colors.$color--darkPrimary

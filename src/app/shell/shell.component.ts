@@ -9,13 +9,13 @@ import { DeviceResponsiveService } from "../share/device-responsive.service";
 })
 export class ShellComponent implements OnInit {
   isHandsetPortrait$: any;
-  isTabletLandscape$: any;
+  isDesktopSize$: any;
 
   constructor(
     DRS: DeviceResponsiveService
   ) {
     this.isHandsetPortrait$ = DRS.whatDevice(Breakpoints.HandsetPortrait);
-    this.isTabletLandscape$ = DRS.whatDevice(Breakpoints.TabletLandscape);
+    this.isDesktopSize$ = DRS.whatDevice(Breakpoints.TabletLandscape);
   }
 
   ngOnInit(): void {
