@@ -1,5 +1,26 @@
-<div class="wave-page">
+<!-- <div class="wave-page">
   <mmt-list-item></mmt-list-item>
   <mmt-list-item></mmt-list-item>
   <mmt-list-item></mmt-list-item>
+</div> -->
+
+<div class="mmt-current__page">
+  
+  <!-- mobile / isHandset -->
+    <div 
+      class="f-mobile"
+      *ngIf="(isHandset$ | async) === true"></div>
+
+  <!-- tablet / isTablet -->
+    <div 
+    class="f-tablet"
+    *ngIf="(isTablet$ | async) === true"
+    ></div>
+
+  <!-- desktop / isWeb  -->
+    <div 
+    class="f-web"
+    *ngIf="(isWeb$ | async) === true"
+    ></div>
+
 </div>

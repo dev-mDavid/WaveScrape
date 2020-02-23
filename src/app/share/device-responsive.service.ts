@@ -26,14 +26,16 @@ import { Breakpoints } from "@angular/cdk/layout";
 import { DeviceResponsiveService } from "../share/device-responsive.service";
 
 export class ComponentName implements OnInit {
-  isHandset$: any;
-  isHandsetPortrait$: any;
+    isHandset$: any;
+  isTablet$: any;
+  isWeb$: any;
 
   constructor(
     DRS: DeviceResponsiveService
   ) {
-    this.isHandset$ = DRS.whatDevice([Breakpoints.Handset]);
-    this.isHandsetPortrait$ = DRS.whatDevice([Breakpoints.HandsetPortrait]);
+    this.isHandset$ = DRS.whatDevice([Breakpoints.XSmall]);
+    this.isTablet$ = DRS.whatDevice([Breakpoints.Small]);
+    this.isWeb$ = DRS.whatDevice([Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge]);
   }
 
   ngOnInit(): void {
