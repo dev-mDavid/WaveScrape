@@ -16,8 +16,14 @@
         class="toolbar--nav-bottom flexbox--bottom"
       >
         <div class="flex--bottom-item"><mat-icon>search</mat-icon></div>
-        <div class="flex--bottom-item"><mat-icon>map</mat-icon></div>
-        <div class="flex--bottom-item">
+        <div class="flex--bottom-item c-nav__link--disabled?">
+          <a mat-icon-button>
+            <mat-icon>map</mat-icon>
+          </a>
+        </div>
+        <div 
+          class="flex--bottom-item"
+          routerLink="current">
           <div class="icon-outline">
             <mat-icon>waves</mat-icon>
           </div>
@@ -85,7 +91,10 @@
                 <span>Map</span>
               </button>
 
-              <button mat-menu-item>
+              <button 
+                mat-menu-item 
+                routerLink="current"
+                >
                 <mat-icon>waves</mat-icon>
                 <span>Current</span>
               </button>
@@ -130,7 +139,7 @@
               </a>
             </div>
             <div class="l-nav__link l-nav-link__3 c-nav__links">
-              <a>
+              <a routerLink="current">
                 <!-- <mat-icon>waves</mat-icon> &nbsp; -->
                 <span>Current</span>
               </a>

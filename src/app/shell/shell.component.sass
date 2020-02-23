@@ -64,6 +64,8 @@
         // background-color: green  // indicator
         // border: 1px solid black // indicator
         width: 100%
+        a
+          
     .icon-outline
       // background-color: red // indicator
       width: 40px
@@ -75,6 +77,9 @@
       mat-icon
         margin-top: 5px
         margin-left: 6px
+
+    .c-nav__link--disabled
+      display: none
 
   .f-tablet
     .l-top-toolbar
@@ -123,6 +128,7 @@
               display: flex
               justify-content: center
               .l-nav__link
+
                 display: flex
                 flex: 1                                
                 flex-basis: auto
@@ -136,6 +142,7 @@
                 a // l- layout
                   display: flex
                   margin: auto
+                  color: colors.$color--white
                   mat-icon // l- layout
                     // @include h-.ind__lo(child, orange)
                     margin: auto
