@@ -10,6 +10,9 @@
     <div 
       class="f-mobile"
       *ngIf="(isHandset$ | async) === true">
+      <mmt-list-item></mmt-list-item>
+      <mmt-list-item></mmt-list-item>
+      <mmt-list-item></mmt-list-item>
     </div>
 
   <!-- tablet / isTablet -->
@@ -17,7 +20,18 @@
       class="f-tablet"
       *ngIf="(isTablet$ | async) === true">
       
-      <div class="l-flexbox__row"></div>
+      <div class="l-flexbox__row">
+        <div class="l-flexbox__item l-flexbox__item--1">
+          <div class="l-flexbox__col">
+            <!-- dynamically add breaks under the regions? -->
+            <mmt-list-item></mmt-list-item>
+            <mmt-list-item></mmt-list-item>
+          </div>
+        </div>
+        <div class="l-flexbox__item l-flexbox__item--2">
+            <mmt-list-item></mmt-list-item>
+        </div>
+      </div>
 
     </div>
 
