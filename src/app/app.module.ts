@@ -10,7 +10,7 @@ import { WavePageComponent } from './wave-page/wave-page.component';
 @NgModule({
   declarations: [
     AppComponent,
-    WavePageComponent
+    WavePageComponent    
   ],
   imports: [
     BrowserModule,

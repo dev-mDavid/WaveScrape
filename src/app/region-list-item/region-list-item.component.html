@@ -1,0 +1,47 @@
+<div class="mmt-list-item">
+  <div class="c-item">
+    <div class="c-item--outie" [ngClass]="expandState ? 'c-item--outie' : 'c-item--innie'">
+      <div class="l-item-contents__flex-row">
+        <div class="l-flex-row__items l-flex-row-item__1">
+          <mat-icon class="l-icon c-icon__star">star</mat-icon>
+        </div>
+
+        <div class="l-flex-row__items l-flex-row-item__2">
+          <div class="l-dynamic-data__flex-col">
+            <div class="l-flex-col__items l-flex-col-item__1">
+              <h3 class="l-text c-text__item-title">{{ break1.name }} — South Side</h3>
+              <!-- <h3 class="l-text c-text__item-title"> Blacks Beach — South Side</h3> -->
+            </div>
+            <div class="l-flex-col__items l-flex-col-item__2">
+              <hr>
+            </div>
+            <div class="l-flex-col__items l-flex-col-item__3">
+
+              <div class="l-quick-preview__flex-row">
+                <div class="l-flex-row__items l-flex-row-item__icon">
+                  <mat-icon class="l-icon__done ">done</mat-icon>
+                </div>
+                <div class="l-flex-row__items l-flex-row-item__text">
+                  <h4 class="c-text__quick-preview">3/2 Wetsuit</h4>
+                </div>
+                <div class="l-flex-row__items l-flex-row-item__text">
+                  <h4 class="c-text__quick-preview">2-5ft</h4>
+                </div>
+                <div class="l-flex-row__items l-flex-row-item__text">
+                  <h4 class="c-text__quick-preview">SSW</h4>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="l-flex-row__items l-flex-row-item__3" (click)="toggleExpand()">
+          <mat-icon class="l-icon c-icon__expand">{{ expandIcon }}</mat-icon>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

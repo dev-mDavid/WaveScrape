@@ -4,6 +4,8 @@ import { RouterModule } from "@angular/router";
 
 import { ShellComponent } from '../shell/shell.component';
 import { MmtListItemComponent } from '../mmt-list-item/mmt-list-item.component';
+import { RegionListItemComponent } from '../region-list-item/region-list-item.component';
+
 
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
@@ -11,7 +13,8 @@ import { MatMenuModule } from "@angular/material/menu";
 
 const components = [
   ShellComponent,
-  MmtListItemComponent
+  MmtListItemComponent,
+  RegionListItemComponent
 ];
 
 const modules = [
