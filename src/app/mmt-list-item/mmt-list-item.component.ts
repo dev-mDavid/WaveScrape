@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mmt-list-item.component.sass']
 })
 export class MmtListItemComponent implements OnInit {
+  
+  
+  // interface Break {
+  //   name: string;
+  // }
+
+  break1 = {
+    name: 'Blacks Beach'
+  }
+
+
+
   expandState: boolean = true;
   expandIcon: string = "expand_more";
 
