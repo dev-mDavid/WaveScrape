@@ -35,6 +35,12 @@ regions = [
   }
 ];
 
+breaks = [
+  {
+    name: "Blacks Beach"
+  }
+];
+
 
 
   constructor(

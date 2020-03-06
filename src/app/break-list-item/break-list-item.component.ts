@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'break-list-item',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./break-list-item.component.sass']
 })
 export class BreakListItemComponent implements OnInit {
+
+  @Input() breakName: string
 
   expandState: boolean = true;
   expandIcon: string = "expand_more";
