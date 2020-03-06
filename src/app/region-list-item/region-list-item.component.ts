@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'region-list-item',
@@ -11,9 +11,20 @@ export class RegionListItemComponent implements OnInit {
   //   name: string;
   // }
 
-  break1 = {
-    name: 'Blacks Beach'
-  }
+  @Input() regionName: string;
+  @Input() regionWaterQuality: boolean;
+  @Input() regionTempSuit: string;
+  @Input() regionWaveSize: string;
+  @Input() regionSwellDirection: string;
+
+  // regions = [
+  //   {
+  //     name: 'San Diego — North County'
+  //   },
+  //   {
+  //     name: 'San Diego — South County'
+  //   }
+  // ];
 
 
 

@@ -12,6 +12,31 @@ export class CurrentComponent implements OnInit {
   isTablet$: any;
   isWeb$: any;
 
+// break1 = {
+//     name: 'San Diego — South County'
+//   }
+
+  
+
+regions = [
+  {
+    name: "San Diego — North County",
+    waterQuality: true,
+    tempSuit: "Boardies",
+    waveSize: "3–8ft",
+    swellDirection: "W"
+  },
+  {
+    name: "San Diego — South County",
+    waterQuality: false,
+    tempSuit: "3/2 Wetsuit",
+    waveSize: "2–5ft",
+    swellDirection: "NW"
+  }
+];
+
+
+
   constructor(
     DRS: DeviceResponsiveService
   ) {
