@@ -24,7 +24,12 @@ regions = [
     waterQuality: true,
     tempSuit: "Boardies",
     waveSize: "3–8ft",
-    swellDirection: "W"
+    swellDirection: "W",
+    breaks: [
+      "Black's Beach",
+      "La Jolla",
+      "Del Mar"
+    ]
   },
   {
     name: "San Diego — South County",
