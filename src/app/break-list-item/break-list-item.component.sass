@@ -1,0 +1,85 @@
+@use '../share/helpers' as h-
+@use '../share/colors'
+@use '../share/fonts'
+
+.break-list-item  
+  .c-item
+    width: 100%
+    &--outie
+      margin: 10px 12.5px 20px
+      border-radius: 20px 0px 20px 20px
+      box-shadow: -4px -4px 10px 2px colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px colors.$color--blue-darken-rgba30
+    &--innie
+      box-shadow: -4px -4px 10px 2px inset colors.$color--blue-lighten-rgba70, 4px 4px 10px 2px inset colors.$color--blue-darken-rgba30
+
+    
+  .l-item-contents__flex-row
+    display: flex
+    .l-flex-row__items
+    .l-flex-row-item
+      &__1
+        $squareCenter: 50px
+        flex-basis: $squareCenter
+        height: $squareCenter
+        display: flex
+        .l-icon
+          margin: auto
+      &__2
+        flex: 1
+      &__3
+        $squareCenter: 50px
+        flex-basis: $squareCenter
+        height: $squareCenter
+        display: flex
+        .l-icon
+          float: right
+          margin: auto
+
+  .c-icon
+    &__star
+      font-size: 24px
+    &__expand
+      font-size: 24px
+
+  .l-dynamic-data__flex-col
+    display: flex
+    flex-direction: column
+
+    .l-flex-col__items
+    .l-flex-col-item
+      &__1
+        padding-top: 12px
+        padding-left: 6px
+        .l-text
+          margin-bottom: 0        
+      &__2
+      &__3
+        flex-basis: auto
+
+  .c-text
+    &__item-title
+      font-size: 20px
+
+  .l-quick-preview__flex-row
+    display: flex
+    flex-wrap: wrap
+    
+    .l-flex-row__items    
+      height: 32px
+    .l-flex-row-item
+      &__icon
+        flex-basis: 30px
+        padding-left: 6px
+      &__text   
+        flex-basis: 1
+        margin: 0 5px
+        h4
+          margin-top: 2px
+          
+  .c-icon__done
+    font-size: 24px
+    color: blue
+  .c-text__quick-preview
+    font-size: 18px
+
+    

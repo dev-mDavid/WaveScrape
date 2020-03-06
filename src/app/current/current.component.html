@@ -10,7 +10,14 @@
     <div 
       class="f-mobile"
       *ngIf="(isHandset$ | async) === true">
-      <region-list-item></region-list-item>
+      <region-list-item
+        *ngFor= "let region of regions"
+        [regionName] = region.name
+        [regionWaterQuality] = region.waterQuality
+        [regionTempSuit] = region.tempSuit
+        [regionWaveSize] = region.waveSize          
+        [regionSwellDirection] = region.swellDirection
+      ></region-list-item>
       <!-- <mmt-list-item></mmt-list-item> -->
       <!-- <mmt-list-item></mmt-list-item> -->
       <!-- <mmt-list-item></mmt-list-item> -->
@@ -25,8 +32,14 @@
         <div class="l-flexbox__item l-flexbox__item--1">
           <div class="l-flexbox__col">
             <!-- dynamically add breaks under the regions? -->
-            <mmt-list-item></mmt-list-item>
-            <mmt-list-item></mmt-list-item>
+            <region-list-item
+              *ngFor= "let region of regions"
+              [regionName] = region.name
+              [regionWaterQuality] = region.waterQuality
+              [regionTempSuit] = region.tempSuit
+              [regionWaveSize] = region.waveSize          
+              [regionSwellDirection] = region.swellDirection
+            ></region-list-item>
           </div>
         </div>
         <div class="l-flexbox__item l-flexbox__item--2">
