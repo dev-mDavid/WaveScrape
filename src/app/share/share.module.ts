@@ -11,12 +11,14 @@ import { BreakListItemComponent } from '../break-list-item/break-list-item.compo
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
+import { CurrentDataItemComponent } from '../current-data-item/current-data-item.component';
 
 const components = [
   ShellComponent,
   MmtListItemComponent,
   RegionListItemComponent,
-  BreakListItemComponent
+  BreakListItemComponent,
+  CurrentDataItemComponent 
 ];
 
 const modules = [
@@ -27,7 +29,7 @@ const modules = [
   MatMenuModule
 ];
 @NgModule({
-  declarations: [...components ],
+  declarations: [...components],
   imports: [ ...modules ],
   exports: [...components, ...modules]
 })
