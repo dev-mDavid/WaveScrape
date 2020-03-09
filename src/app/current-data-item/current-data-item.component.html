@@ -1,1 +1,70 @@
-<p>current-data-item works!</p>
+<div class="current-data-item">
+  <div class="c-header-item">
+    <div class="c-header-item--innie">
+      <div class="l-item-contents__flex-row">
+        <div class="l-flex-row__items l-flex-row-item__1">
+          <mat-icon class="l-icon c-icon__star">star</mat-icon>
+        </div>
+
+        <div class="l-flex-row__items l-flex-row-item__2">
+          <div class="l-dynamic-data__flex-col">
+            <div class="l-flex-col__items l-flex-col-item__1">
+              <h3 class="l-text c-text__item-title">{{ break1.name }}<br> San Diego — North Side</h3>
+              <!-- <h3 class="l-text c-text__item-title"> Blacks Beach — South Side</h3> -->
+            </div>
+            <div class="l-flex-col__items l-flex-col-item__2">
+              <hr>
+            </div>
+            <div class="l-flex-col__items l-flex-col-item__3">
+
+              <div class="l-quick-preview__flex-row">
+                <div class="l-flex-row__items l-flex-row-item__icon">
+                  <mat-icon class="l-icon__done ">done</mat-icon>
+                </div>
+                <div class="l-flex-row__items l-flex-row-item__text">
+                  <h4 class="c-text__quick-preview">3/2 Wetsuit</h4>
+                </div>
+                <div class="l-flex-row__items l-flex-row-item__text">
+                  <h4 class="c-text__quick-preview">8-12ft</h4>
+                </div>
+                <div class="l-flex-row__items l-flex-row-item__text">
+                  <h4 class="c-text__quick-preview">SSW</h4>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="l-flex-row__items l-flex-row-item__3" (click)="toggleExpand()">
+          <mat-icon class="l-icon c-icon__expand">{{ expandIcon }}</mat-icon>
+        </div>
+
+      </div>
+      <div class="c-current-data">
+        <div class="l-time-layout__flex-col">
+          <div class="l-flex-col-item l-flex-col-item__1">
+            <div class="l-time-data__flex-row">
+              <div class="l-flex-row-item l-flex-row-item__1">
+                <p>4am</p>
+              </div>
+            </div>
+          </div>
+          <div class="l-flex-col-item l-flex-col-item__2"></div>
+          <div class="l-flex-col-item l-flex-col-item__3"></div>
+          <div class="l-flex-col-item l-flex-col-item__4"></div>
+          <div class="l-flex-col-item l-flex-col-item__5"></div>
+          <div class="l-flex-col-item l-flex-col-item__6"></div>
+          <div class="l-flex-col-item l-flex-col-item__7"></div>
+          <div class="l-flex-col-item l-flex-col-item__8"></div>
+          <div class="l-flex-col-item l-flex-col-item__9"></div>
+          <div class="l-flex-col-item l-flex-col-item__10"></div>
+          <div class="l-flex-col-item l-flex-col-item__11"></div>
+          <div class="l-flex-col-item l-flex-col-item__12"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

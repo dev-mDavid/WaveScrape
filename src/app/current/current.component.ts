@@ -27,7 +27,7 @@ regions = [
     swellDirection: "W",
     breaks: [
       "Black's Beach",
-      "La Jolla",
+      "La Jolla Shores",
       "Del Mar"
     ]
   },
