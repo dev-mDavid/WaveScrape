@@ -5,8 +5,13 @@ import { CurrentRoutingModule } from './current-routing.module';
 import { CurrentComponent } from './current.component';
 import { ShareModule } from "../share/share.module";
 
+import { CurrentDataItemListComponent } from '../current-data-item__list/current-data-item.component__list';
+
 @NgModule({
-  declarations: [CurrentComponent],
+  declarations: [
+    CurrentComponent, 
+    CurrentDataItemListComponent
+  ],
   imports: [
     CommonModule,
     CurrentRoutingModule,
