@@ -2,7 +2,7 @@
 @use '../share/colors'
 @use '../share/fonts'
 
-.current-data-item  
+.current-data-item__horizontal-scroll
   .c-header-item
     width: 100%
     &--outie
@@ -99,10 +99,10 @@
         width: 50px              
         
         // flex: 1
-        height: 500px
+        // height: 500px // indicator
         // @include h-.ind__lo(child, red)
         &__1
-          @include h-.ind__lo(child, orange)
+          @include h-.ind__lo(parent, orange)
         &__2
           @include h-.ind__lo(child, green)
         &__6
@@ -110,6 +110,15 @@
         &__12
           @include h-.ind__lo(child, yellow)
         .l-time-data__flex-row
+          display: flex
+          flex-direction: column
           .l-flex-row-item
+            flex: 1
             &__1
-    
+              @include h-.ind__lo(child, green)
+            &__2
+            &__3
+              @include h-.ind__lo(child, red)
+              flex-basis: 50vh
+            &__4
+              

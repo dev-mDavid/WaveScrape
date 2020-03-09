@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'current-data-item',
-  templateUrl: './current-data-item.component.html',
-  styleUrls: ['./current-data-item.component.sass']
+  selector: 'current-data-item__horizontal-scroll',
+  templateUrl: './current-data-item__horizontal-scroll.component.html',
+  styleUrls: ['./current-data-item__horizontal-scroll.component.sass']
 })
-export class CurrentDataItemComponent implements OnInit {
+export class CurrentDataItemHorizontalScrollComponent implements OnInit {
 
 
   // interface Break {

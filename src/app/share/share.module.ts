@@ -11,14 +11,14 @@ import { BreakListItemComponent } from '../break-list-item/break-list-item.compo
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
-import { CurrentDataItemComponent } from '../current-data-item/current-data-item.component';
+import { CurrentDataItemHorizontalScrollComponent } from '../current-data-item__horizontal-scroll/current-data-item__horizontal-scroll.component';
 
 const components = [
   ShellComponent,
   MmtListItemComponent,
   RegionListItemComponent,
   BreakListItemComponent,
-  CurrentDataItemComponent 
+  CurrentDataItemHorizontalScrollComponent
 ];
 
 const modules = [
