@@ -104,3 +104,60 @@
         &__1
         &__2
     
+  .c-time-slot--data
+    mat-icon
+      // font-size: px    
+    &__custom
+    &__sun      
+      .c-time--marker
+        h4
+          font-size: 18px
+      .c-sun--text-status
+        p
+          font-size: 16px
+      .c-sun--icon-status    
+        mat-icon
+          font-size: 32px
+    &__tides
+    
+
+    .l-time-slot--data      
+      &__custom
+      &__sun
+        @include h-.ind__lo(parent, red)
+        display: flex        
+        height: 50px
+        .l-icon--pointer 
+          flex-basis: 25px
+          margin: auto 0  
+          mat-icon            
+            padding-left: 6px
+            @include h-.ind__lo(child, blue)
+        .l-time--marker
+          flex-basis: 50px                              
+          margin-top: 12px
+          h4            
+            margin: auto
+            padding-left: 6px
+
+          // @include h-.ind__lo(child, green)
+        .l-sun--text-status
+          margin: auto 0
+          margin-top: auto          
+          flex: 3
+          // @include h-.ind__lo(child, orange) //
+          p
+            margin: auto
+            padding-left: 6px
+
+        .l-sun--icon-status
+          display: flex
+          justify-content: flex-end
+          flex: 1
+          flex-basis: 25px
+          margin: auto 0  
+          margin-top: 10px
+          padding-right: 20px 
+          // @include h-.ind__lo(child, purple) //
+      &__tides
+    
