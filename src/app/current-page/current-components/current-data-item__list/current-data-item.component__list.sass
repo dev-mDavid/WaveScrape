@@ -93,15 +93,17 @@ $time-slot--custom-text__margin-top: 9.5px
 
   .c-current-data
     .l-current-data--flex-row
-      @include h-.ind__lo(parent, red)
+      // @include h-.ind__lo(parent, red)
+      padding-left: 12px
+      padding-right: 12px
       .l-current-data-flex--item
         &__1
           // @include h-.vis__box($color: transparent)
-          @include h-.ind__lo(child, green)
+          // @include h-.ind__lo(child, green)
 
         &__2
           @include h-.vis__box($color: transparent)
-          @include h-.ind__lo(child, yellow)
+          // @include h-.ind__lo(child, yellow)
     
   .c-dynamic-data
     .l-dynamic-data--flex-col
@@ -112,7 +114,7 @@ $time-slot--custom-text__margin-top: 9.5px
         &__1
         &__2
     
-  .c-time-slot--data    
+  .c-time-slot--data        
     &__custom
       .c-time--marker
         h4
@@ -140,7 +142,9 @@ $time-slot--custom-text__margin-top: 9.5px
       .c-tides--icon-status
         mat-icon
           font-size: 24px
-    
+    .c-icon-pointer
+      mat-icon
+        color: colors.$color--orange
     .l-time-slot--data      
       &__custom
         display: flex        
@@ -153,13 +157,13 @@ $time-slot--custom-text__margin-top: 9.5px
           margin-top: $time-slot--icon-pointer__margin-top
           flex-basis: $time-slot--icon-pointer__width
           mat-icon            
-            padding-left: 6px
+            // padding-left: 6px
         .l-time--marker
           flex-basis: 25px                              
           margin-top: $time-slot--time-text__margin-top
           h4            
             margin: auto
-            padding-left: 6px
+            // padding-left: 6px
         .l-custom--text-status
           margin: auto 0
           margin-top: auto          
@@ -183,13 +187,13 @@ $time-slot--custom-text__margin-top: 9.5px
           flex-basis: $time-slot--icon-pointer__width
           margin: auto 0  
           mat-icon            
-            padding-left: 6px
+            // padding-left: 6px
         .l-time--marker
           flex-basis: 50px                              
           margin-top: $time-slot--time-text__margin-top
           h4            
             margin: auto
-            padding-left: 6px
+            // padding-left: 6px
         .l-sun--text-status
           margin: auto 0
           margin-top: $time-slot--custom-text__margin-top
@@ -219,12 +223,12 @@ $time-slot--custom-text__margin-top: 9.5px
           margin-top: $time-slot--time-text__margin-top
           h4            
             margin: auto
-            padding-left: 6px
+            // padding-left: 6px
         .l-tides--text-status
           margin: auto 0
           margin-top: $time-slot--custom-text__margin-top
           flex: 8          
-          @include h-.ind__lo(child, green)
+          // @include h-.ind__lo(child, green)
           p
             margin: auto
             padding-left: 6px
