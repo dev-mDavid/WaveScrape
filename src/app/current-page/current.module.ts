@@ -5,13 +5,17 @@ import { CurrentRoutingModule } from './current-routing.module';
 import { CurrentComponent } from './current.component';
 import { ShareModule } from "../share/share.module";
 
-import { CurrentDataItemListComponent } from '../current-data-item__list/current-data-item.component__list';
+import { BreakListItemComponent } from "./current-components/break-list-item/break-list-item.component";
+import { CurrentDataItemListComponent } from './current-components/current-data-item__list/current-data-item.component__list';
+import { RegionListItemComponent } from "./current-components/region-list-item/region-list-item.component";
 
 import { PortalModule } from "@angular/cdk/portal";
 @NgModule({
   declarations: [
     CurrentComponent, 
-    CurrentDataItemListComponent
+    CurrentDataItemListComponent,
+    BreakListItemComponent,
+    RegionListItemComponent
   ],
   imports: [
     CommonModule,

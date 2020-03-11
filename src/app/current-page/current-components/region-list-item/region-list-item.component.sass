@@ -1,8 +1,8 @@
-@use '../share/helpers' as h-
-@use '../share/colors'
-@use '../share/fonts'
+@use '../../../share/helpers' as h-
+@use '../../../share/colors'
+@use '../../../share/fonts'
 
-.break-list-item  
+.region-list-item  
   .c-item
     width: 100%
     &--outie
@@ -52,6 +52,9 @@
         padding-left: 6px
         .l-text
           margin-bottom: 0        
+      &__2
+      &__3
+        flex-basis: auto
 
   .c-text
     &__item-title
@@ -71,5 +74,12 @@
         flex-basis: 1
         margin: 0 5px
         h4
-          margin-top: 2px          
+          margin-top: 2px
+          
+  .c-icon__done
+    font-size: 24px
+    color: blue
+  .c-text__quick-preview
+    font-size: 18px
+
     
