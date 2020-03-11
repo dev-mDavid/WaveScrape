@@ -7,6 +7,7 @@ import { ShareModule } from "../share/share.module";
 
 import { CurrentDataItemListComponent } from '../current-data-item__list/current-data-item.component__list';
 
+import { PortalModule } from "@angular/cdk/portal";
 @NgModule({
   declarations: [
     CurrentComponent, 
@@ -15,7 +16,8 @@ import { CurrentDataItemListComponent } from '../current-data-item__list/current
   imports: [
     CommonModule,
     CurrentRoutingModule,
-    ShareModule
+    ShareModule,
+    PortalModule
   ]
 })
 export class CurrentModule { }

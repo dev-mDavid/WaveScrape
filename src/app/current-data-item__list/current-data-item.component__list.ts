@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentDataItemListComponent implements OnInit {
 
+  // interface Break {
+  //   name: string;
+  // }
+
+  break1 = {
+    name: 'La Jolla Shores'
+  }
+
+  expandState: boolean = true;
+  expandIcon: string = "expand_more";
+
+  toggleExpand() {
+    this.expandState = !this.expandState;
+    this.expandIcon = (this.expandIcon == "expand_more") ? "expand_less" : "expand_more";
+  }
   constructor() { }
 
   ngOnInit(): void {
