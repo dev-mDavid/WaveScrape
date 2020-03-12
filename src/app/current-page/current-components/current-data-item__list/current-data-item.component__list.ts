@@ -5,14 +5,25 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './current-data-item.component__list.html',
   styleUrls: ['./current-data-item.component__list.sass']
 })
+
 export class CurrentDataItemListComponent implements OnInit {
+ 
 
   // interface Break {
   //   name: string;
   // }
 
+  mockData = [
+    {
+      id: 123,
+      name: "hello World"
+    },{
+      id: 124
+    }
+  ]
   breaksCurrent = [
     {
+      id: 123,
       breakName: "La Jolla Shores",
       regionName: "San Diego — North Side",
       regionQuickPreview: {
@@ -20,8 +31,7 @@ export class CurrentDataItemListComponent implements OnInit {
         suitType: "3/2 Wetsuit",
         waveSize: "8-12ft",
         swellDirection: "SSW"
-      },
-      
+      },      
       today: {
         date: "01/01/20",
         waterQuality: null,
@@ -65,11 +75,24 @@ export class CurrentDataItemListComponent implements OnInit {
 
 
     },
-    {}
-  ]
+    {
+      id: 124
+    }
+  ];
+  
+
   break1 = {
     name: 'La Jolla Shores'
   }
+
+  LaJollaShoresTimeSlotTime = 
+    this
+    .breaksCurrent.find(x=>x.id === 123)
+    .today
+    .timeSlots.find(x=>x.time === 4)
+    .time + 'am';
+
+
 
   expandState: boolean = true;
   expandIcon: string = "expand_more";
@@ -78,7 +101,9 @@ export class CurrentDataItemListComponent implements OnInit {
     this.expandState = !this.expandState;
     this.expandIcon = (this.expandIcon == "expand_more") ? "expand_less" : "expand_more";
   }
-  constructor() { }
+  constructor() {     
+   
+  }
 
   ngOnInit(): void {
   }
