@@ -13,84 +13,81 @@ export class CurrentDataItemListComponent implements OnInit {
   //   name: string;
   // }
 
-  mockData = [
-    {
-      id: 123,
-      name: "hello World"
-    },{
-      id: 124
-    }
-  ]
-  breaksCurrent = [
-    {
-      id: 123,
-      breakName: "La Jolla Shores",
-      regionName: "San Diego — North Side",
-      regionQuickPreview: {
-        waterQuality: "check",
-        suitType: "3/2 Wetsuit",
-        waveSize: "8-12ft",
-        swellDirection: "SSW"
-      },      
-      today: {
-        date: "01/01/20",
-        waterQuality: null,
-        moonPhase: null,
-        sunData: {
-          sunRise: null,
-          sunSet: null,
-          firstLight: null,
-          lastLight: null,
-        },        
-        tideData: {
-          highTide: [
-            { tideTime: null,
-              tideHeight: null
-            }
-          ],
-          lowTide: [],
-        },
-        timeSlots: [
+  breaksCurrentData = {
+    breakName: "La Jolla Shores",
+    regionName: "San Diego — North Side",
+    today: {
+      date: null,
+      waterQuality: null,
+      moonPhase: null,
+      sunData: {
+        sunRise: null,
+        sunSet: null,
+        firstLight: null,
+        lastLight: null,
+      }, 
+      tideData: {
+        highTide: [
           {
-            time: 4,
-            meridiem: "am",
-            waveSize: null,
-            waveEnergy: null,
-            swellDirection: null, 
-            swellSize: null,
-            swellPeriod: null,
-            tideHeight: null,
-            tideDireciton: null,
-            windSpeed: null,
-            windDirection: null,
-            tempAir: null,
-            tempWater: null,                    
+            tideTime: null,
+            tideHeight: null
           }
-        ]
-        
+        ],
+        lowTide: [],
       },
-      tomorrow: {
-        date: "01/02/20"
-      }
-
-
+      timeSlots: [
+        {
+          time: 4,
+          meridiem: "am",
+          waveSize: "2-3ft",
+          waveEnergy: null,
+          swellDirection: null, 
+          swellSize: null,
+          swellPeriod: null,
+          tideHeight: null,
+          tideDirection: null,
+          windSpeed: null,
+          windDirection: null,
+          tempAir: null,
+          tempWater: null,                    
+        }
+      ],
     },
-    {
-      id: 124
+    tomorrow: {
     }
-  ];
-  
+  }
+
+  regionCurrentData = {
+    quickPreview: {
+      waterQuality: "check",
+      suitType: "3/2 Wetsuit",
+      waveSize: "8-12ft",
+      swellDirection: "SSW"
+    }
+  }
+        
+        
 
   break1 = {
     name: 'La Jolla Shores'
   }
 
-  LaJollaShoresTimeSlotTime = 
+  breaksCurrentTodayTimeSlotTime = 
     this
-    .breaksCurrent.find(x=>x.id === 123)
+    .breaksCurrentData
     .today
     .timeSlots.find(x=>x.time === 4)
     .time + 'am';
+
+   
+  breaksCurrentTodayTimeSlotWaveSize = 
+  this
+  .breaksCurrentData
+  .today
+  .timeSlots.find(x=>x.time === 4)
+  .waveSize
+
+
 
 
 
