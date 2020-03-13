@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "wavescrape-dev": {
+      "hosting": {
+        "WaveScrape": [
+          "wavescrape-dev"
+        ]
+      }
+    }
+  }
+}
