@@ -1,4 +1,4 @@
-export interface CurrentBreaks {
+export interface CurrentBreak {
   breakName?: string;
   regionName?: string;
   today?: Today[];
@@ -11,7 +11,7 @@ export interface Day {
   moonPhase?: string
   sunData?: SunData[];
   tideData?: TideData[];
-  timeSlots?: TimeSlots[];
+  timeSlots?: TimeSlot[];
 };
 
 export interface SunData {
@@ -36,7 +36,7 @@ export interface LowTide {
   tideHeight?: number;
 };
 
-export interface TimeSlots {
+export interface TimeSlot {
   time?: firebase.firestore.FieldValue;  
   waveSize?: string;
   waveEnergy?: string;

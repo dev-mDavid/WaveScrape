@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
+import { Subscription } from "rxjs";
+import { CurrentBreak } from "../../current-models/currentBreak.model";
+import { CurrentBreaksService } from "../../current-services/currentBreaks.service";
 @Component({
   selector: 'current-data-item__list',
   templateUrl: './current-data-item.component__list.html',
   styleUrls: ['./current-data-item.component__list.sass']
 })
 
-export class CurrentDataItemListComponent implements OnInit {
- 
+export class CurrentDataItemListComponent implements OnInit {        
+  currentBreaks: CurrentBreak[];
+  sub: Subscription;
+  
+  
+ constructor(private currentBreakService: CurrentBreaksService) {}
 
   // interface Break {
   //   name: string;
@@ -86,9 +93,7 @@ export class CurrentDataItemListComponent implements OnInit {
   .timeSlots.find(x=>x.time === 4)
   .waveSize
 
-
-
-
+  
 
   expandState: boolean = true;
   expandIcon: string = "expand_more";
@@ -97,11 +102,19 @@ export class CurrentDataItemListComponent implements OnInit {
     this.expandState = !this.expandState;
     this.expandIcon = (this.expandIcon == "expand_more") ? "expand_less" : "expand_more";
   }
-  constructor() {     
-   
+
+  // items: Observable<any[]>;
+  // constructor(firestore: AngularFirestore) {     
+  //  this.items = firestore.collection('currentBreaks').
+  // }
+
+  ngOnInit(){
+    this.sub = this.currentBreakService
+      .getCurrentBreakData()
+      .subscribe(currentBreaks => (this.currentBreaks = currentBreaks));
   }
 
-  ngOnInit(): void {
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
-
 }
