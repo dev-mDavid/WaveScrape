@@ -1,13 +1,12 @@
-import { Timestamp } from 'rxjs/internal/operators/timestamp';
-
 export interface CurrentBreaks {
   breakName?: string;
   regionName?: string;
   today?: Today[];
+  tomorrow?: Tomorrow[];
 };
 
-export interface Today {
-  date?: firebase.firestore.Timestamp;
+export interface Day {
+  date?: firebase.firestore.FieldValue;
   waterQuality?: string;
   moonPhase?: string
   sunData?: SunData[];
@@ -16,10 +15,10 @@ export interface Today {
 };
 
 export interface SunData {
-  sunRise?: firebase.firestore.Timestamp;
-  sunSet?: firebase.firestore.Timestamp;
-  firstLight?: firebase.firestore.Timestamp;
-  lastLight?: firebase.firestore.Timestamp;
+  sunRise?: firebase.firestore.FieldValue;
+  sunSet?: firebase.firestore.FieldValue;
+  firstLight?: firebase.firestore.FieldValue;
+  lastLight?: firebase.firestore.FieldValue;
 };
   
 export interface TideData {
@@ -28,22 +27,29 @@ export interface TideData {
 };
 
 export interface HighTide {
-  tideTime?: firebase.firestore.Timestamp;
+  tideTime?: firebase.firestore.FieldValue;
   tideHeight?: number;
 };
 
 export interface LowTide {
-  tideTime?: firebase.firestore.Timestamp;
+  tideTime?: firebase.firestore.FieldValue;
   tideHeight?: number;
 };
 
 export interface TimeSlots {
-  time?: firebase.firestore.Timestamp;  
+  time?: firebase.firestore.FieldValue;  
   waveSize?: string;
   waveEnergy?: string;
   swellDirection?: string;
   swellSize?: string | number;
   swellPeriod?: string | number;
   tideHeight?: number;
-  // tideDirection?: null;w
+  // tideDirection?: null;
+  windSpeed?: number;
+  windDirection?: string;
+  tempAir?: number;
+  tempWater?: number;
 };
+
+export interface Today extends Day {};
+export interface Tomorrow extends Day {};
