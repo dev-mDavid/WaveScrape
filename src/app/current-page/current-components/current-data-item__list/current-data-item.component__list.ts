@@ -12,7 +12,6 @@ export class CurrentDataItemListComponent implements OnInit {
   // interface Break {
   //   name: string;
   // }
-
   breaksCurrentData = {
     breakName: "La Jolla Shores",
     regionName: "San Diego — North Side",
