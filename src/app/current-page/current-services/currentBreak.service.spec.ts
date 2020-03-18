@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CurrentBreaksService } from './currentBreaks.service';
+import { CurrentBreakService } from './currentBreak.service';
 
 describe('CurrentBreaksService', () => {
-  let service: CurrentBreaksService;
+  let service: CurrentBreakService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CurrentBreaksService);
+    service = TestBed.inject(CurrentBreakService);
   });
 
   it('should be created', () => {

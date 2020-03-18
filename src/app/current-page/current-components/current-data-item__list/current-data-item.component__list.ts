@@ -1,8 +1,17 @@
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import 'firebase/firestore';
 import { Component, OnInit, Input } from '@angular/core';
+import { firestore } from 'firebase';
 
-import { Subscription } from "rxjs";
-import { CurrentBreak } from "../../current-models/currentBreak.model";
-import { CurrentBreaksService } from "../../current-services/currentBreaks.service";
+// import { Subscription } from "rxjs";
+// import { CurrentBreak } from "../../current-models/currentBreak.model";
+import { CurrentBreakService } from "../../current-services/currentBreak.service";
+
+// import * as firebase from "firebase/app";
+
+// import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
+// import { Observable } from "rxjs";
 @Component({
   selector: 'current-data-item__list',
   templateUrl: './current-data-item.component__list.html',
@@ -10,15 +19,38 @@ import { CurrentBreaksService } from "../../current-services/currentBreaks.servi
 })
 
 export class CurrentDataItemListComponent implements OnInit {        
-  currentBreaks: CurrentBreak[];
-  sub: Subscription;
+@Input() currentBreak;   
   
+  constructor(private db: AngularFirestore, private currentBreakService: CurrentBreakService ) {}
   
- constructor(private currentBreakService: CurrentBreaksService) {}
+  ngOnInit() {    
+    console.log(this.db.collection('currentBreaks').doc('laJollaShores').snapshotChanges());
 
-  // interface Break {
-  //   name: string;
-  // }
+    // console.dir(
+      
+    // this.db
+    //   .collection('currentBreaks')
+    //   .doc('laJollaShores')
+    //   // .valueChanges({ idField: 'breakName' })
+    // ) 
+  }
+
+  ngOnDestroy() {
+  }
+
+
+
+
+
+
+
+
+
+/* _______________________________________________*/
+
+
+
+
   breaksCurrentData = {
     breakName: "La Jolla Shores",
     regionName: "San Diego — North Side",
@@ -72,7 +104,7 @@ export class CurrentDataItemListComponent implements OnInit {
     }
   }
         
-        
+          
 
   break1 = {
     name: 'La Jolla Shores'
@@ -101,20 +133,5 @@ export class CurrentDataItemListComponent implements OnInit {
   toggleExpand() {
     this.expandState = !this.expandState;
     this.expandIcon = (this.expandIcon == "expand_more") ? "expand_less" : "expand_more";
-  }
-
-  // items: Observable<any[]>;
-  // constructor(firestore: AngularFirestore) {     
-  //  this.items = firestore.collection('currentBreaks').
-  // }
-
-  ngOnInit(){
-    this.sub = this.currentBreakService
-      .getCurrentBreakData()
-      .subscribe(currentBreaks => (this.currentBreaks = currentBreaks));
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
   }
 }
