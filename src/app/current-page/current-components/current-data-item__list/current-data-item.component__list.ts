@@ -1,30 +1,54 @@
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, OnInit, Input } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
-import { Component, OnInit, Input } from '@angular/core';
-import { firestore } from 'firebase';
+
+// import { firestore } from 'firebase';
 
 // import { Subscription } from "rxjs";
-// import { CurrentBreak } from "../../current-models/currentBreak.model";
-import { CurrentBreakService } from "../../current-services/currentBreak.service";
+import { CurrentBreak } from "../../current-models/currentBreak.model";
+// import { CurrentBreakService } from "../../current-services/currentBreak.service";
 
 // import * as firebase from "firebase/app";
 
 // import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/firestore";
 // import { Observable } from "rxjs";
+
+// export interface CurrentBreak { breakName: string; }
 @Component({
   selector: 'current-data-item__list',
   templateUrl: './current-data-item.component__list.html',
   styleUrls: ['./current-data-item.component__list.sass']
 })
 
-export class CurrentDataItemListComponent implements OnInit {        
-@Input() currentBreak;   
-  
-  constructor(private db: AngularFirestore, private currentBreakService: CurrentBreakService ) {}
+// export class CurrentDataItemListComponent implements OnInit {        
+export class CurrentDataItemListComponent{        
+
+// @Input() currentBreak;   
+
+private currentBreakDoc: AngularFirestoreDocument<CurrentBreak>;
+currentBreak: Observable<CurrentBreak>;
+
+  constructor(
+    private db: AngularFirestore 
+    // private currentBreakService: CurrentBreakService
+  ) {
+    this.currentBreakDoc = db.doc<CurrentBreak>('currentBreaks/laJollaShores');
+    this.currentBreak = this.currentBreakDoc.valueChanges();
+  }
+  update(currentBreak: CurrentBreak) {
+    this.currentBreakDoc.update(currentBreak);
+  }
   
   ngOnInit() {    
-    console.log(this.db.collection('currentBreaks').doc('laJollaShores').snapshotChanges());
+    console.log(
+      this.db
+      .collection('currentBreaks')
+      
+      // .snapshotChanges()
+      );
+    
+    
 
     // console.dir(
       
