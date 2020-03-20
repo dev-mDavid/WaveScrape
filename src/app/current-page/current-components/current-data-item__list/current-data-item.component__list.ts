@@ -7,7 +7,7 @@ import 'firebase/firestore';
 
 // import { Subscription } from "rxjs";
 import { CurrentBreak } from "../../current-models/currentBreak.model";
-// import { CurrentBreakService } from "../../current-services/currentBreak.service";
+import { CurrentBreakService } from "../../current-services/currentBreak.service";
 
 // import * as firebase from "firebase/app";
 
@@ -21,42 +21,27 @@ import { CurrentBreak } from "../../current-models/currentBreak.model";
   styleUrls: ['./current-data-item.component__list.sass']
 })
 
-// export class CurrentDataItemListComponent implements OnInit {        
-export class CurrentDataItemListComponent{        
+export class CurrentDataItemListComponent implements OnInit {        
+// export class CurrentDataItemListComponent{        
 
 // @Input() currentBreak;   
 
-private currentBreakDoc: AngularFirestoreDocument<CurrentBreak>;
 currentBreak: Observable<CurrentBreak>;
 
-  constructor(
-    private db: AngularFirestore 
-    // private currentBreakService: CurrentBreakService
-  ) {
-    this.currentBreakDoc = db.doc<CurrentBreak>('currentBreaks/laJollaShores');
-    this.currentBreak = this.currentBreakDoc.valueChanges();
-  }
-  update(currentBreak: CurrentBreak) {
-    this.currentBreakDoc.update(currentBreak);
-  }
+  constructor(    
+    public currentBreakService: CurrentBreakService
+  ) {}
   
-  ngOnInit() {    
-    console.log(
-      this.db
-      .collection('currentBreaks')
-      
-      // .snapshotChanges()
-      );
-    
-    
 
-    // console.dir(
-      
-    // this.db
-    //   .collection('currentBreaks')
-    //   .doc('laJollaShores')
-    //   // .valueChanges({ idField: 'breakName' })
-    // ) 
+
+  ngOnInit() {    
+    this.currentBreak = 
+    this.currentBreakService.getCurrentBreakData('laJollaShores');
+    // this.db.collection<CurrentBreak>('currentBreaks')
+    // .doc('laJollaShores')
+    // .valueChanges();
+
+    // .db.doc<CurrentBreak>('currentBreaks/laJollaShores')
   }
 
   ngOnDestroy() {

@@ -12,12 +12,11 @@ export class CurrentBreakService {
   /**
    * Gets all data for each break
    */
-  getCurrentBreakData(boardId: string) {
+  getCurrentBreakData(currentBreakId: string) {
     return this.db
-    .collection('currentBreaks')
-      .doc(boardId)
-    // )
-      // .valueChanges({idField: 'breakName'})
+    .collection<CurrentBreak>('currentBreaks') // collection
+    .doc(currentBreakId)
+    .valueChanges();    
   }
 
   
