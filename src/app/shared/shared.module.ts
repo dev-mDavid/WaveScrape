@@ -27,4 +27,4 @@ const modules = [
   imports: [ ...modules ],
   exports: [...components, ...modules]
 })
-export class ShareModule { }
+export class SharedModule { }

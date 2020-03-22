@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CurrentRoutingModule } from './current-routing.module';
 import { CurrentComponent } from './current.component';
-import { ShareModule } from "../share/share.module";
+import { SharedModule } from "../shared/shared.module";
 
 import { BreakListItemComponent } from "./current-components/break-list-item/break-list-item.component";
 import { CurrentDataItemListComponent } from './current-components/current-data-item__list/current-data-item.component__list';
@@ -20,7 +20,7 @@ import { PortalModule } from "@angular/cdk/portal";
   imports: [
     CommonModule,
     CurrentRoutingModule,
-    ShareModule,
+    SharedModule,
     PortalModule
   ]
 })
