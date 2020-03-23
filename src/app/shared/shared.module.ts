@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
 
-import { ShellComponent } from '../shell/shell.component';
+
 import { MmtListItemComponent } from "../mmt-list-item/mmt-list-item.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatSidenavModule } from "@angular/material/sidenav";
+
+import { ShellComponent } from '../shell/shell.component';
 import { CurrentDataItemHorizontalScrollComponent } from '../current-page/current-components/current-data-item__horizontal-scroll/current-data-item__horizontal-scroll.component';
 
 const components = [
@@ -20,7 +23,8 @@ const modules = [
   RouterModule,
   MatToolbarModule,
   MatIconModule,  
-  MatMenuModule
+  MatMenuModule,
+  MatSidenavModule
 ];
 @NgModule({
   declarations: [...components],

@@ -1,1 +1,21 @@
-<p>admin-shell works!</p>
+<div class="admin--nav-shell">
+
+  <!-- mobile/isHandsetPortrait$ || not tablet/isTabletLandscape -->
+    <div class="f-mobile"
+      *ngIf="(isHandset$ | async) === true">
+      <h3>Please use Desktop/Laptop</h3>
+    </div>
+  <!-- tablet/isTabletLandscape$ || not phone -->
+    <div class="f-tablet"
+    *ngIf="((isTablet$ | async) === true)">
+    <h3>Please use Desktop/Laptop</h3>
+  </div>
+
+  <!-- desktop/laptop ||  -->
+    <div class="f-desktop"
+      *ngIf="(isWeb$ | async) === true" >
+      <h3>Works Desktop/Laptop</h3>
+      <!-- <mat-sidenav></mat-sidenav> -->
+    </div>
+
+</div>

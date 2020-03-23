@@ -23,7 +23,7 @@ export class DeviceResponsiveService {
 
 /* How to Use on a component:
 import { Breakpoints } from "@angular/cdk/layout";
-import { DeviceResponsiveService } from "../share/device-responsive.service";
+import { DeviceResponsiveService } from "../../core/device-responsive.service";
 
 export class ComponentName implements OnInit {
     isHandset$: any;
