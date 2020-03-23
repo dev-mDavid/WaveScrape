@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Breakpoints } from "@angular/cdk/layout";
-import { DeviceResponsiveService } from "../shared/device-responsive.service";
+import { DeviceResponsiveService } from "../core/device-responsive.service";
 
 @Component({
   selector: 'nav-shell',
