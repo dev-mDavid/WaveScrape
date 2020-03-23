@@ -14,3 +14,23 @@ export class GoogleSigninDirective {
       console.log('hello google auth');
     }
 }
+
+/* How to Use
+
+  * Component Template
+<div *ngIf="!(afAuth.authState | async)">
+  <button appGoogleSignin>
+     Login with Google
+  </button>
+</div>
+
+<div *ngIf="afAuth.authState | async as user" class="logout">
+  <p> Logged in as {{ user.email }} </p>
+  <button (click)="afAuth.auth.signOut()">Logout</button>
+</div>
+
+  * Component Logic: add the following 
+import { AngularFireAuth } from '@angular/fire/auth';
+constructor(public afAuth: AngularFireAuth) { }
+
+ */
