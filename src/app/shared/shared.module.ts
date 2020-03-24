@@ -8,6 +8,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatListModule } from "@angular/material/list";
 
 import { ShellComponent } from '../shell/shell.component';
 import { CurrentDataItemHorizontalScrollComponent } from '../current-page/current-components/current-data-item__horizontal-scroll/current-data-item__horizontal-scroll.component';
@@ -24,7 +25,8 @@ const modules = [
   MatToolbarModule,
   MatIconModule,  
   MatMenuModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatListModule
 ];
 @NgModule({
   declarations: [...components],

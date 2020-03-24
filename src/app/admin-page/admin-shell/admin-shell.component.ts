@@ -5,7 +5,7 @@ import { Breakpoints } from "@angular/cdk/layout";
 import { DeviceResponsiveService } from "../../core/device-responsive.service";
 
 @Component({
-  selector: 'app-admin-shell',
+  selector: 'admin-shell',
   templateUrl: './admin-shell.component.html',
   styleUrls: ['./admin-shell.component.sass']
 })

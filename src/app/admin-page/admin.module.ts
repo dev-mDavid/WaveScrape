@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from "../shared/shared.module";
+
+import { AdminComponent } from './admin.component';
+
+import { AdminShellComponent } from './admin-shell/admin-shell.component';
 import { AdminRoutingModule } from './admin-routing.module';
 
-import { SharedModule } from "../shared/shared.module";
-import { AdminShellComponent } from './admin-shell/admin-shell.component';
 import { AdminCurrentComponent } from "./admin-components/admin-current/admin-current.component";
-import { AdminComponent } from '../admin/admin.component';
 
 @NgModule({
   declarations: [
+    AdminComponent,
     AdminShellComponent, 
-    AdminCurrentComponent, AdminComponent],
+    AdminCurrentComponent, 
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
