@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from "firebase/app";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { CurrentBreak } from "../current-models/currentBreak.model";
+import { CurrentBreak } from "../../core/models/currentBreak.model";
 
 @Injectable({
   providedIn: 'root'
