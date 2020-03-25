@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
 
-import { CurrentBreak } from "../../current-models/currentBreak.model";
+import { CurrentBreak } from "../../../core/models/currentBreak.model";
 import { CurrentBreakService } from "../../current-services/currentBreak.service";
 
 
