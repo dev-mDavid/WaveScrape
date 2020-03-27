@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import 'firebase/firestore';
+// import {  } from "";
 
 @Component({
   selector: 'app-admin-breaks',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminBreaksComponent implements OnInit {
 
   constructor() { }
-
+  
   ngOnInit(): void {
   }
 

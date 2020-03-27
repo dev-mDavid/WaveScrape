@@ -1,3 +1,4 @@
+// @include h-.ind__lo()()
 @mixin ind__lo($relation: parent, $color: red, $thickness: 3px) // layout indicator     
 
   @if $relation == parent
@@ -14,6 +15,7 @@
   &--child 
     @include ind__lo(child)
 
+// @include h-.vis__box()
 @mixin vis__box($width: 100%, $height: 100px, $color: green)   // box visual  
   width: $width
   height: $height

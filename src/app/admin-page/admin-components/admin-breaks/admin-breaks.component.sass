@@ -1,0 +1,20 @@
+@use '../../../shared/helpers' as h-
+@use '../../../shared/colors'
+@use '../../../shared/fonts'
+
+  
+.admin-breaks
+  .l-col--container
+    display: flex
+    // @include h-.ind__lo()
+    .l-parent--col
+      // @include h-.ind__lo(child, yellow)
+      flex: 1
+    .l-child--col
+      flex: 1
+      // @include h-.ind__lo(child, orange)
+      
+    .l-doc--col
+      flex: 1
+      // @include h-.vis__box($color: transparent)
+      // @include h-.ind__lo($color: blue)
