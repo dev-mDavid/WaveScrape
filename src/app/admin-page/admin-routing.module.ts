@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from "./admin.component";
-import { AdminShellComponent } from "./admin-shell/admin-shell.component";
-import { AdminCurrentComponent } from "./admin-components/admin-current/admin-current.component";
+import { AdminBreaksComponent } from './admin-components/admin-breaks/admin-breaks.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent},
-  {path: 'current', component: AdminCurrentComponent}
+  {path: 'breaks', component: AdminBreaksComponent},
 ];
 
 @NgModule({
