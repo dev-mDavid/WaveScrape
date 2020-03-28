@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import 'firebase/firestore';
 
-import { Observable } from "rxjs";
-// import {  } from "../../../core/models/";
+import { Observable, Subscription } from "rxjs";
 
-import { AdminBreaksService } from "../../services/admin-breaks.service";
-import { RegionByState } from "../../../core/models/regionsByState.model";
+// import { AdminBreaksService } from "../../services/admin-breaks.service";
+import { RegionByState, StringArray  } from "../../../core/models/regionByState.model";
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-admin-breaks',
@@ -13,19 +13,39 @@ import { RegionByState } from "../../../core/models/regionsByState.model";
   styleUrls: ['./admin-breaks.component.sass']
 })
 export class AdminBreaksComponent implements OnInit {
-regionByState: Observable<RegionByState>;
 
+items: RegionByState[];
+sub: Subscription
   constructor(
-    public adminBreaksService: AdminBreaksService
+    private db: AngularFirestore,
+    // public adminBreaksService: AdminBreaksService
     ) { }
   
-  ngOnInit() {
-    
-    // this.regionByState =
-    // this.
-    
-    
+  getRegions() {    
+    // return this.db
+    // .collection<RegionByState>('regionsByState')
+    // .doc('XR35zoWWfIXq2OohErgA')
+    // .valueChanges()
 
+    return this.db
+    .collection<RegionByState>('regionsByState', ref => 
+    ref.where('state', '==', 'California'))
+    .valueChanges()
+  }
+  
+    
+  ngOnInit() {
+    // console.log(this.getRegions())
+      // this.regionByState$ = this.getRegions()
+      // console.log(
+        this.sub = this.getRegions()
+        .subscribe(items => (this.items = items))
+      // );
+      
+    
+  }
+  OnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 
 
-import { RegionByState, StringArray } from "../../core/models/regionsByState.model";
+import { RegionByState, StringArray } from "../../core/models/regionByState.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +14,16 @@ export class AdminBreaksService {
   /**
    * Get Array of All Regions (from regionsByState)
    */
-  getRegions() {
+  // getRegions() {
     
-    return this.afs.collection<RegionByState>(
-      'regionsByState', ref => ref.where(
-        'state', '==', 'California' 
-      )
-    )
+  //   return this.afs.collection<RegionByState>(
+  //     'regionsByState', ref => ref.where(
+  //       'state', '==', 'California' 
+  //     )
+  //   )
 
       
-  }
+  // }
   /**
    * Get Array of Breaks by Region (from breaksByRegion)
    */

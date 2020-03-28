@@ -2,8 +2,13 @@
   <div class="admin-breaks">
 
     <div class="l-col--container">
-      <div class="l-parent--col">
-        {{ (region | async).state }}
+      <div class="l-parent--col"
+      *ngFor="let item of items"
+      >
+      {{ item.state }}
+        
+        
+        
       </div>
       <div class="l-child--col">
 
