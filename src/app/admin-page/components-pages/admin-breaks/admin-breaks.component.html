@@ -2,10 +2,18 @@
   <div class="admin-breaks">
 
     <div class="l-col--container">
-      <div class="l-parent--col"
-      *ngFor="let item of items"
-      >
-      {{ item.state }}
+      <div class="l-parent--col" >
+      <div *ngFor="let item of items">
+        <div *ngFor="let region of item.regions">
+          <!-- {{ item.regions }} -->
+          {{ region }}
+        </div>
+      </div>
+   
+      
+
+
+
         
         
         
