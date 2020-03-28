@@ -35,16 +35,21 @@
           <button type="button" aria-label="Toggle sidnav" mat-icon-button (click)="drawer.toggle()">
             <mat-icon>more_vert</mat-icon>
           </button>
-          <mat-toolbar>Admin</mat-toolbar>
+          <!-- <mat-toolbar>
+            Admin
+          </mat-toolbar> -->
 
           <mat-nav-list>
-            <a mat-list-item routerLink="/admin/">Admin Home</a>
-            <!-- <a mat-list-item routerLink="/admin/map">Map</a> -->
-            <!-- <a mat-list-item routerLink="/admin/search">Search</a> -->
-            <a mat-list-item routerLink="/admin/breaks">breaks</a>
-            <!-- <a mat-list-item routerLink="/admin/current">Current</a> -->
-            <!-- <a mat-list-item routerLink="/admin/forecast">Forecast</a> -->
-            <!-- <a mat-list-item routerLink="/admin/preferences">Preferences</a> -->
+            
+            <mat-toolbar>
+              <a mat-list-item routerLink="/admin/">Admin Home</a>
+            </mat-toolbar>
+
+            <a mat-list-item routerLink="/admin/countries">Countries</a>
+            <a mat-list-item routerLink="/admin/states">States</a>
+            <a mat-list-item routerLink="/admin/regions">Regions</a>
+            <a mat-list-item routerLink="/admin/breaks">Breaks</a>
+            
           </mat-nav-list>
 
         </mat-sidenav>
