@@ -2,11 +2,11 @@
   <div class="admin-breaks">
 
     <div class="l-col--container">
-      <div class="l-parent--col" >
-      <div *ngFor="let item of items">
-        <div *ngFor="let region of item.regions">
+      <div class="l-parent--col">
+      <div *ngFor="let regionArrays of regionsByStates">
+        <div *ngFor="let valuesOfRegionArrays of regionArrays.regions">
           <!-- {{ item.regions }} -->
-          {{ region }}
+          {{ valuesOfRegionArrays }}
         </div>
       </div>
    
@@ -19,7 +19,11 @@
         
       </div>
       <div class="l-child--col">
-
+        <div *ngFor="let breakArrays of breaksByRegions">
+          <div *ngFor="let valuesOfBreakArrays of breakArrays.breaks">
+            {{ valuesOfBreakArrays}}
+          </div>
+        </div>
       </div>
       <div class="l-doc--col">
         

@@ -1,4 +1,4 @@
-export interface RegionByState {
+export interface RegionsByState {
   state?: string;
   regions?: StringArray[];
 };

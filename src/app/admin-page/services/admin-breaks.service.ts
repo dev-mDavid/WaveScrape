@@ -2,31 +2,40 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 
 
-import { RegionByState, StringArray } from "../../core/models/regionByState.model";
+import { RegionsByState, StringArray } from "../../core/models/regionByState.model";
+import { BreaksByRegion } from "../../core/models/breaksByRegion.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminBreaksService {
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private db: AngularFirestore) {}
 
   /**
-   * Get Array of All Regions (from regionsByState)
-   */
-  // getRegions() {
-    
-  //   return this.afs.collection<RegionByState>(
-  //     'regionsByState', ref => ref.where(
-  //       'state', '==', 'California' 
-  //     )
-  //   )
-
+   * Read all Docs from regionsByState (collection) by the value of the state
+   */    
+  readRegionsByState(   
+    stateValue: string
+  ) {
+    return this.db
+      .collection<RegionsByState>("regionsByState", ref =>
+        ref.where('state', '==', stateValue))
+      .valueChanges()
+  }
       
   // }
   /**
-   * Get Array of Breaks by Region (from breaksByRegion)
+   * Reads all Docs from breaksByRegion (collection) by the value of the region
    */
+  readBreaksbyRegion(
+    regionValue: string
+  ) {
+    return this
+    .db.collection<BreaksByRegion>("breaksByRegion", ref =>
+      ref.where('region', '==', regionValue))
+    .valueChanges()
+  }
   
   /**
    * Create New Break

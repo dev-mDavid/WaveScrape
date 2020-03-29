@@ -3,9 +3,11 @@ import 'firebase/firestore';
 
 import { Observable, Subscription } from "rxjs";
 
-// import { AdminBreaksService } from "../../services/admin-breaks.service";
-import { RegionByState, StringArray  } from "../../../core/models/regionByState.model";
+import { AdminBreaksService } from "../../services/admin-breaks.service";
+import { RegionsByState, StringArray  } from "../../../core/models/regionByState.model";
+import { BreaksByRegion } from "../../../core/models/breaksByRegion.model";
 import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-admin-breaks',
@@ -14,36 +16,31 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AdminBreaksComponent implements OnInit {
 
-items: RegionByState[];
+regionsByStates: RegionsByState[];
+breaksByRegions: BreaksByRegion[];
 sub: Subscription
   constructor(
     private db: AngularFirestore,
-    // public adminBreaksService: AdminBreaksService
+    public adminBreaksService: AdminBreaksService
     ) { }
   
-  getRegions() {    
-    // return this.db
-    // .collection<RegionByState>('regionsByState')
-    // .doc('XR35zoWWfIXq2OohErgA')
-    // .valueChanges()
-
-    return this.db
-    .collection<RegionByState>('regionsByState', ref => 
-    ref.where('state', '==', 'California'))
-    .valueChanges()
-  }
+  // selectThisRegion() {}
   
     
   ngOnInit() {
-    // console.log(this.getRegions())
-      // this.regionByState$ = this.getRegions()
-      // console.log(
-        this.sub = this.getRegions()
-        .subscribe(items => (this.items = items))
-      // );
-      
-    
+    this.sub = this.adminBreaksService
+      .readRegionsByState(        
+        "California"
+        )
+      .subscribe(regionsByStates => (this.regionsByStates = regionsByStates))
+
+    this.sub = this.adminBreaksService
+    .readBreaksbyRegion('San Diego — North County')
+    .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions))
   }
+
+
+
   OnDestroy() {
     this.sub.unsubscribe();
   }

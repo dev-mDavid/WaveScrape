@@ -1,4 +1,4 @@
-export interface BreakByRegion {
+export interface BreaksByRegion {
   region?: string;
   breaks?: StringArray[];
 };
