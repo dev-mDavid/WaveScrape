@@ -28,7 +28,7 @@ export class AdminBreaksService {
   /**
    * Reads all Docs from breaksByRegion (collection) by the value of the region
    */
-  readBreaksbyRegion(
+  readBreaksByRegion(
     regionValue: string
   ) {
     return this

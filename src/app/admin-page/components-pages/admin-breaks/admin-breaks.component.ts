@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import 'firebase/firestore';
 
-import { Observable, Subscription } from "rxjs";
+import { Observable, Subscription, } from "rxjs";
 
 import { AdminBreaksService } from "../../services/admin-breaks.service";
 import { RegionsByState, StringArray  } from "../../../core/models/regionByState.model";
@@ -14,35 +14,52 @@ import { AngularFirestore } from '@angular/fire/firestore';
   templateUrl: './admin-breaks.component.html',
   styleUrls: ['./admin-breaks.component.sass']
 })
-export class AdminBreaksComponent implements OnInit {
+export class AdminBreaksComponent implements OnInit, OnDestroy{
 
 regionsByStates: RegionsByState[];
 breaksByRegions: BreaksByRegion[];
-sub: Subscription
+sub: Subscription;
+
   constructor(
     private db: AngularFirestore,
-    public adminBreaksService: AdminBreaksService
-    ) { }
+    public adminBreaksService: AdminBreaksService,
+    ) { }  
+
   
-  // selectThisRegion() {}
-  
+  showBreaksOfThisRegion(selectedRegion: string){
+      return this.sub = this.adminBreaksService
+        .readBreaksByRegion(
+          selectedRegion
+        )
+        .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions))  
+    }
     
   ngOnInit() {
+
+    // this.selectThisRegion()
     this.sub = this.adminBreaksService
       .readRegionsByState(        
         "California"
-        )
+        )              
       .subscribe(regionsByStates => (this.regionsByStates = regionsByStates))
 
-    this.sub = this.adminBreaksService
-    .readBreaksbyRegion('San Diego — North County')
-    .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions))
+    // return this.sub = this.adminBreaksService
+    // .readBreaksByRegion(
+    //   'San Diego — North County'      
+    //   // this.selectedRegion      
+    //   )
+    // .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions))  
+
+  }
+
+  
+  ngOnChanges() {
+    
   }
 
 
-
-  OnDestroy() {
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
+  
 }
