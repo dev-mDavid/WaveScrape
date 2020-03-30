@@ -9,12 +9,13 @@ import { AdminShellComponent } from './admin-shell/admin-shell.component';
 import { AdminRoutingModule } from './admin-routing.module';
 
 import { AdminBreaksComponent } from './components-pages/admin-breaks/admin-breaks.component';
+import { AddBreakDialogComponent } from './dialogs/add-break-dialog.component';
 
 @NgModule({
   declarations: [
     AdminComponent,
     AdminShellComponent, 
-    AdminBreaksComponent, 
+    AdminBreaksComponent, AddBreakDialogComponent, 
   ],
   imports: [
     CommonModule,
