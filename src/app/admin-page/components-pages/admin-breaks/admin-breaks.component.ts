@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import 'firebase/firestore';
+import { MatDialog } from "@angular/material/dialog";
 
 import { Observable, Subscription, } from "rxjs";
 
@@ -7,6 +8,7 @@ import { AdminBreaksService } from "../../services/admin-breaks.service";
 import { RegionsByState, StringArray  } from "../../../core/models/regionByState.model";
 import { BreaksByRegion } from "../../../core/models/breaksByRegion.model";
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AddBreakDialogComponent } from "../../dialogs/add-break-dialog.component";
 
 
 @Component({
@@ -19,10 +21,12 @@ export class AdminBreaksComponent implements OnInit, OnDestroy{
 regionsByStates: RegionsByState[];
 breaksByRegions: BreaksByRegion[];
 sub: Subscription;
+// dialog: MatDialog;
 
   constructor(
     private db: AngularFirestore,
     public adminBreaksService: AdminBreaksService,
+    public dialog: MatDialog,
     ) { }  
 
   
@@ -32,7 +36,19 @@ sub: Subscription;
           selectedRegion
         )
         .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions))  
-    }
+  }
+
+  openAddBreakDialog(): void{
+    console.log('openAddBreakDialog');
+    const dialogRef = this.dialog.open(AddBreakDialogComponent,{
+      width: '400px',
+      data:{}
+    });
+
+   dialogRef.afterClosed().subscribe(result => {
+     if (result) {}
+   }) 
+  }
     
   ngOnInit() {
 
