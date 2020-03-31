@@ -1,13 +1,20 @@
+// Core
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
-import 'firebase/firestore';
-import { MatDialog } from "@angular/material/dialog";
-
 import { Observable, Subscription, } from "rxjs";
 
+// Database, Services, 
 import { AdminBreaksService } from "../../services/admin-breaks.service";
-import { RegionsByState, StringArray  } from "../../../core/models/regionByState.model";
-import { BreaksByRegion } from "../../../core/models/breaksByRegion.model";
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { database } from 'firebase';
+
+// Models
+import { RegionsByState, StringArray } from "../../../core/models/regionByState.model";
+import { BreaksByRegion } from "../../../core/models/breaksByRegion.model";
+
+// Dialogs
+import { MatDialog } from "@angular/material/dialog";
 import { AddBreakDialogComponent } from "../../dialogs/add-break-dialog.component";
 
 
@@ -29,6 +36,37 @@ sub: Subscription;
     public dialog: MatDialog,
     ) { }  
 
+
+  devToAddBreak(breakName: string) {
+    
+    return this
+      // .db.collection<BreaksByRegion>("breaksByRegion", ref =>
+      //   ref.where('region', '==', 'San Diego — North County'))
+      // .valueChanges().
+
+      .db.collection<BreaksByRegion>("breaksByRegion")      
+      .doc('roOmpIS8v81jEI7byT7h')
+      .update({ breaks: firebase.firestore.FieldValue.arrayUnion(breakName)})
+
+      // .update({ breaks: 'dance' })
+
+    // return this
+      // .db.collection<BreaksByRegion>
+      // ("breaksByRegion", ref =>
+      //   ref.where('region', '==', 'San Diego — North County'))      
+      // .add({
+        // breaks: StringArray[]
+        // break:  'fantastic' 
+      // })
+          
+        
+    
+  }  
+
+  
+    
+    
+    
   
   showBreaksOfThisRegion(selectedRegion: string){
       return this.sub = this.adminBreaksService

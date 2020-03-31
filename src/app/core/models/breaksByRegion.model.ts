@@ -5,4 +5,5 @@ export interface BreaksByRegion {
 
 export interface StringArray {
   [index: number]: string;
+  // break?: string;
 };

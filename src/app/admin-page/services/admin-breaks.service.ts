@@ -38,8 +38,22 @@ export class AdminBreaksService {
   }
   
   /**
-   * Create New Break
+   * Update & add a new Break to the Region Selected
    */
+  // updateAddBreak(
+  //   // data: BreaksByRegion, 
+  //   regionValue: string,
+  //   breaks: StringArray[]
+  //   ) {
+  //   return this
+  //     .db.collection("breaksByRegion", ref =>
+  //       ref.where('region', '==', regionValue))
+  //       // .add({
+  //       //   ...data,
+  //       //   breaks: []
+  //       // })
+  //     .update({ breaks })
+  // }
 
   /**
    * Provide matching Break

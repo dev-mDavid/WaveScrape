@@ -11,6 +11,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminBreaksComponent } from './components-pages/admin-breaks/admin-breaks.component';
 import { AddBreakDialogComponent } from './dialogs/add-break-dialog.component';
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 @NgModule({
   declarations: [
     AdminComponent,
@@ -21,7 +23,9 @@ import { MatDialogModule } from "@angular/material/dialog";
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class AdminModule { }
