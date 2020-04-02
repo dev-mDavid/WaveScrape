@@ -2,25 +2,27 @@ import { Component, Inject } from '@angular/core';
 import {  MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 // import { MatFormField, MatFormFieldControl } from "@angular/material/form-field";
 // import { MatInput, MatInputModule } from "@angular/material/input";
+
 @Component({
   selector: 'app-add-break-dialog',
   template: `
-    <h1 mat-dialog-title> Title</h1>
+    <h1 mat-dialog-title> Add Break to</h1>
     <div mat-dialog-content>
-    <p>Add Break</p>
+    <p>{{ data.region }} Region</p>
     <mat-form-field>
-    
-        <input placeholder="title" matInput 
+        <input placeholder="Break's name" matInput 
+        [(ngModel)]="data.breaks"
         />
-        <!-- [(ngModel)]="data.breaks" -->
+        
       </mat-form-field>    
     </div>     
-
+        {{ data.id }}
+        
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()">
         Cancel
       </button>
-      <button mat-button cdkFocusInitial> 
+      <button mat-button [mat-dialog-close]="data.breaks" cdkFocusInitial> 
         Create
       </button>
     </div>

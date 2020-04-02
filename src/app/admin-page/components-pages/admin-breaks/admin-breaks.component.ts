@@ -25,6 +25,7 @@ import { map } from 'rxjs/operators';
   templateUrl: './admin-breaks.component.html',
   styleUrls: ['./admin-breaks.component.sass']
 })
+
 export class AdminBreaksComponent implements OnInit, OnDestroy{
 
 regionsByStates: RegionsByState[];
@@ -39,7 +40,13 @@ sub: Subscription;
     ) { }  
 
 
-  devToAddBreak(breakName: string) {
+  devSetObjectId(objectId: string){
+    console.log(objectId);
+    
+    // console.log(valuesOfBreakArrays);
+  }
+
+  devToAddBreak(docId: string,breakName: string) {
     
     return this
       // .db.collection<BreaksByRegion>("breaksByRegion", ref =>
@@ -47,7 +54,7 @@ sub: Subscription;
       // .valueChanges().
 
       .db.collection<BreaksByRegion>("breaksByRegion")      
-      .doc('roOmpIS8v81jEI7byT7h')
+      .doc(docId)
       .update({ breaks: firebase.firestore.FieldValue.arrayUnion(breakName)})
 
       // .update({ breaks: 'dance' })
@@ -65,20 +72,6 @@ sub: Subscription;
     
   }  
 
-  howManyInThisArray() {
-    
-    if (this.breaksByRegions.length > 1) {
-      alert('')
-    };
-    
-
-  }
-
-  
-    
-    
-    
-  
   showBreaksOfThisRegion(selectedRegion: string){
 
       return this.sub = this.adminBreaksService
@@ -89,11 +82,11 @@ sub: Subscription;
         
   }
 
-  openAddBreakDialog(): void{
+  openAddBreakDialog(idData: string, regionData: string): void{
     console.log('openAddBreakDialog');
     const dialogRef = this.dialog.open(AddBreakDialogComponent,{
       width: '400px',
-      data:{}
+      data:{id: idData, region: regionData}
     });
 
    dialogRef.afterClosed().subscribe(result => {

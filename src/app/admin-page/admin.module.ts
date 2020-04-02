@@ -13,6 +13,7 @@ import { AddBreakDialogComponent } from './dialogs/add-break-dialog.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { FormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AdminComponent,
@@ -25,7 +26,8 @@ import { MatInputModule } from "@angular/material/input";
     SharedModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
