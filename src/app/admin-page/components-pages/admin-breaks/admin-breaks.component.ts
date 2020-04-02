@@ -40,37 +40,7 @@ sub: Subscription;
     ) { }  
 
 
-  devSetObjectId(objectId: string){
-    console.log(objectId);
     
-    // console.log(valuesOfBreakArrays);
-  }
-
-  devToAddBreak(docId: string,breakName: string) {
-    
-    return this
-      // .db.collection<BreaksByRegion>("breaksByRegion", ref =>
-      //   ref.where('region', '==', 'San Diego — North County'))
-      // .valueChanges().
-
-      .db.collection<BreaksByRegion>("breaksByRegion")      
-      .doc(docId)
-      .update({ breaks: firebase.firestore.FieldValue.arrayUnion(breakName)})
-
-      // .update({ breaks: 'dance' })
-
-    // return this
-      // .db.collection<BreaksByRegion>
-      // ("breaksByRegion", ref =>
-      //   ref.where('region', '==', 'San Diego — North County'))      
-      // .add({
-        // breaks: StringArray[]
-        // break:  'fantastic' 
-      // })
-          
-        
-    
-  }  
 
   showBreaksOfThisRegion(selectedRegion: string){
 
@@ -90,7 +60,9 @@ sub: Subscription;
     });
 
    dialogRef.afterClosed().subscribe(result => {
-     if (result) {}
+     if (result) {
+       this.adminBreaksService.updateAddBreakToRegionDoc(result.id, result.break)
+     }
    }) 
   }
     

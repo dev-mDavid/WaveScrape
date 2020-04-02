@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
+import * as firebase from 'firebase/app';
 
 
 import { RegionsByState, StringArray } from "../../core/models/regionByState.model";
@@ -51,22 +52,16 @@ export class AdminBreaksService {
 
 
   /**
-   * Update & add a new Break to the Region Selected
+   * Update & add a new reak breaks array of the selected region doc by Id
    */
-  // updateAddBreak(
-  //   // data: BreaksByRegion, 
-  //   regionValue: string,
-  //   breaks: StringArray[]
-  //   ) {
-  //   return this
-  //     .db.collection("breaksByRegion", ref =>
-  //       ref.where('region', '==', regionValue))
-  //       // .add({
-  //       //   ...data,
-  //       //   breaks: []
-  //       // })
-  //     .update({ breaks })
-  // }
+  
+  updateAddBreakToRegionDoc(docId: string, breakName: string){
+  return this.db.collection<BreaksByRegion>("breaksByRegion")
+    .doc(docId)
+    .update({ breaks: firebase.firestore.FieldValue.arrayUnion(breakName)})
+  }
+  
+  
 
   /**
    * Provide matching Break

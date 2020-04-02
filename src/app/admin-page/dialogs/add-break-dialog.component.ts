@@ -10,8 +10,8 @@ import {  MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
     <div mat-dialog-content>
     <p>{{ data.region }} Region</p>
     <mat-form-field>
-        <input placeholder="Break's name" matInput 
-        [(ngModel)]="data.breaks"
+        <input placeholder="Break's Name" matInput 
+        [(ngModel)]="data.break"
         />
         
       </mat-form-field>    
@@ -22,7 +22,7 @@ import {  MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
       <button mat-button (click)="onNoClick()">
         Cancel
       </button>
-      <button mat-button [mat-dialog-close]="data.breaks" cdkFocusInitial> 
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial> 
         Create
       </button>
     </div>
