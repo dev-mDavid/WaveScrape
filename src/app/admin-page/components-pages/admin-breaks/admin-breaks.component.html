@@ -36,6 +36,23 @@
             DEV to add Break
         </h1> </button>
 
+        <button (click)="howManyInThisArray()"> <h1>
+            DEV :howManyInThisArray()         </h1> </button>
+
+        <div *ngFor="let breakArrays of breaksByRegions">
+          <!-- {{ breakArrays.id }}          -->
+
+          <div *ngIf="(breaksByRegions.length > 1 )">
+            <p>
+              ERROR: There are {{ breaksByRegions.length }} documents <br>
+              [{{ breakArrays.id }}]
+              <br> with a duplicate key—value pair of:
+              <br> "{{breakArrays.region}}". 
+              <br>Please check your database and debug
+            </p>
+          </div>
+          
+        </div>
 
       </div>
       <div class="l-doc--col">

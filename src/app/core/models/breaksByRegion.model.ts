@@ -1,4 +1,5 @@
 export interface BreaksByRegion {
+  id?: string;
   region?: string;
   breaks?: StringArray[];
 };

@@ -1,21 +1,23 @@
 // Core
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Observable, Subscription, } from "rxjs";
+// import { map } from 'rxjs/add/operator/map';
 
 // Database, Services, 
 import { AdminBreaksService } from "../../services/admin-breaks.service";
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection  } from '@angular/fire/firestore';
 import { database } from 'firebase';
 
-// Models
+// Interfaces, Models
 import { RegionsByState, StringArray } from "../../../core/models/regionByState.model";
 import { BreaksByRegion } from "../../../core/models/breaksByRegion.model";
 
 // Dialogs
 import { MatDialog } from "@angular/material/dialog";
 import { AddBreakDialogComponent } from "../../dialogs/add-break-dialog.component";
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -63,17 +65,28 @@ sub: Subscription;
     
   }  
 
+  howManyInThisArray() {
+    
+    if (this.breaksByRegions.length > 1) {
+      alert('')
+    };
+    
+
+  }
+
   
     
     
     
   
   showBreaksOfThisRegion(selectedRegion: string){
+
       return this.sub = this.adminBreaksService
         .readBreaksByRegion(
           selectedRegion
         )
-        .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions))  
+        .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions));  
+        
   }
 
   openAddBreakDialog(): void{
@@ -89,7 +102,6 @@ sub: Subscription;
   }
     
   ngOnInit() {
-
     // this.selectThisRegion()
     this.sub = this.adminBreaksService
       .readRegionsByState(        

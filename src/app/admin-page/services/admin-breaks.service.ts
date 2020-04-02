@@ -4,6 +4,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 
 import { RegionsByState, StringArray } from "../../core/models/regionByState.model";
 import { BreaksByRegion } from "../../core/models/breaksByRegion.model";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -30,13 +31,25 @@ export class AdminBreaksService {
    */
   readBreaksByRegion(
     regionValue: string
-  ) {
+  ) {       
     return this
     .db.collection<BreaksByRegion>("breaksByRegion", ref =>
       ref.where('region', '==', regionValue))
-    .valueChanges()
+      .snapshotChanges()
+        .pipe(map( actions => actions
+          .map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            // console.log(id)
+            return {id, ...data}
+          })))
+    // .valueChanges()
+    
   }
   
+  
+
+
   /**
    * Update & add a new Break to the Region Selected
    */
