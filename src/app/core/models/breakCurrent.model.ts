@@ -1,4 +1,5 @@
-export interface CurrentBreak {
+export interface BreakCurrent {
+  id?: id;
   breakName?: string;
   regionName?: string;
   today?: Today[];
