@@ -80,22 +80,34 @@
             <div *ngFor="let breakArrays of breaksByRegions">
 
               {{selectedBreak}}<br>
-              <button>Edit Break Name</button><br>
-              <button>Change Region</button><br>
+              <div *ngIf="(selectedBreak)">
+                <button>Edit Break Name</button><br>
+                <button>Change Region</button><br>
 
-              <br>
+                <br>
 
-              Break Map<br>
-              <button>Generate Data Model</button><br>
-              <button>Edit Data Values</button><br>
-              
-              <br>
+                Break Map <i>(feature coming soon)</i><br> 
+                <div *ngIf="!(boolBreakMapDocExists)">
+                  <button>Generate Data Model</button><br>
+                </div>
 
-              Break Current<br>
-              <button>Genereate Data Model</button><br>
-              <button>Edit/Mock Data Values</button><br>
-              <button>Edit Data Sources</button><br>              
-              
+                <div *ngIf="boolBreakMapDocExists">
+                  <button>Edit Data Values</button><br>
+                </div>
+                
+                <br>
+
+                Break Current<br>
+                <div *ngIf="!(boolBreakCurrentDocExists)">
+                  <button>Genereate Data Model</button><br>
+                </div>
+                
+                <div *ngIf="boolBreakCurrentDocExists">
+                  <button>Edit/Mock Data Values</button><br>
+                  <button>Edit Data Sources</button><br>              
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>                

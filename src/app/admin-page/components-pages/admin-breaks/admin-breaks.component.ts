@@ -34,6 +34,9 @@ sub: Subscription;
 // dialog: MatDialog;
 selectedBreak: string;
 
+boolBreakMapDocExists: boolean = false;
+boolBreakCurrentDocExists: boolean = false;
+
   constructor(
     private db: AngularFirestore,
     public adminBreaksService: AdminBreaksService,
@@ -51,12 +54,55 @@ selectedBreak: string;
         
   }
 
+  /**
+   * showDetailsOfThisBreak
+     
+      * breakInfo
+        * editBreakName
+        * changeRegion
+        
+      * runBreakFeaturesCheck
+        * breakMap.docExists()
+        * breakCurrent.docExists()
+        
+      * if (breakMapDocExists == false)
+        * generateDataModel.service()
+      * if (breakMapDocExists == true)
+        * editDataValues.dialog()
+      
+      * if (breakCurrentDocExists == false)
+        * generateDataModel
+      * if (breakCurrentDocExists == true)
+        * editOrMockDataValues
+        * editDataSources
+   */
+
+
+  
   showDetailsOfThisBreak(breakName: string){
+    this.breakInfo();
+    this.runBreakFeaturesCheck();
     return this.selectedBreak = breakName;
-    // console.log(item)
-    // console.log('hello')
   }
 
+  breakInfo() { console.log('breakInfo')}
+  
+  runBreakFeaturesCheck() { 
+    this.breakMapDocExists()
+    this.breakCurrentDocExists()
+  }
+
+  breakMapDocExists() { console.log('breakMapDocExists');}
+
+  breakCurrentDocExists() { 
+    console.log('breakCurrentDocExists')
+    // this.boolBreakCurrentDocExists == false;
+  }
+
+  
+  
+  
+  
   openAddBreakDialog(idData: string, regionData: string): void{
     console.log('openAddBreakDialog');
     const dialogRef = this.dialog.open(AddBreakDialogComponent,{
