@@ -32,15 +32,14 @@ regionsByStates: RegionsByState[];
 breaksByRegions: BreaksByRegion[];
 sub: Subscription;
 // dialog: MatDialog;
+selectedBreak: string;
 
   constructor(
     private db: AngularFirestore,
     public adminBreaksService: AdminBreaksService,
     public dialog: MatDialog,
-    ) { }  
-
-
     
+    ) { }  
 
   showBreaksOfThisRegion(selectedRegion: string){
 
@@ -50,6 +49,12 @@ sub: Subscription;
         )
         .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions));  
         
+  }
+
+  showDetailsOfThisBreak(breakName: string){
+    return this.selectedBreak = breakName;
+    // console.log(item)
+    // console.log('hello')
   }
 
   openAddBreakDialog(idData: string, regionData: string): void{
@@ -67,20 +72,11 @@ sub: Subscription;
   }
     
   ngOnInit() {
-    // this.selectThisRegion()
     this.sub = this.adminBreaksService
       .readRegionsByState(        
         "California"
         )              
       .subscribe(regionsByStates => (this.regionsByStates = regionsByStates))
-
-    // return this.sub = this.adminBreaksService
-    // .readBreaksByRegion(
-    //   'San Diego — North County'      
-    //   // this.selectedRegion      
-    //   )
-    // .subscribe(breaksByRegions => (this.breaksByRegions = breaksByRegions))  
-
   }
 
   

@@ -2,6 +2,8 @@
   <div class="admin-breaks">
 
     <div class="l-col--container">
+
+      <!-- 1st Column -->
       <div class="l-parent--col">
       <div *ngFor="let regionArrays of regionsByStates">
         <div *ngFor="let valuesOfRegionArrays of regionArrays.regions" >
@@ -22,6 +24,7 @@
 
       </div>
 
+      <!-- 2nd Column -->
       <div class="l-child--col">
         <div *ngIf="(breaksByRegions)">
           
@@ -30,11 +33,24 @@
 
         <!-- Is Working -->
             <div *ngFor="let breakArrays of breaksByRegions">
+
+              <h3>
+                Region: {{ breakArrays.region }}
+                <br>
+                Region Doc-Id: {{ breakArrays.id }}
+              </h3>
+              
               <div *ngFor="let valuesOfBreakArrays of breakArrays.breaks">            
-                {{ valuesOfBreakArrays }}
+
+                
+                
+                <button (click)="showDetailsOfThisBreak(valuesOfBreakArrays)">
+                  {{ valuesOfBreakArrays }}
+                </button>
+                
               </div>            
               
-
+              <br>
               <button (click)="openAddBreakDialog(breakArrays.id, breakArrays.region)">Add Break</button>
               
             </div>
@@ -55,28 +71,37 @@
               </div>
           </div>
         </div>
-        
-        
-      
-        
-        
-
-       
-
-        
       </div>
 
-      
+      <!-- 3rd Column -->
       <div class="l-doc--col">
-        
-      </div>
-    </div>
-    
-  <p>add Region</p>
-  <p>add Break</p>
-  <p>overwrite break data</p>
-  <p style="margin-left: 200px;">admin-current works!</p>
+        <div *ngIf="(breaksByRegions)">
+          <div *ngIf="(breaksByRegions.length === 1 )">
+            <div *ngFor="let breakArrays of breaksByRegions">
 
+              {{selectedBreak}}<br>
+              <button>Edit Break Name</button><br>
+              <button>Change Region</button><br>
+
+              <br>
+
+              Break Map<br>
+              <button>Generate Data Model</button><br>
+              <button>Edit Data Values</button><br>
+              
+              <br>
+
+              Break Current<br>
+              <button>Genereate Data Model</button><br>
+              <button>Edit/Mock Data Values</button><br>
+              <button>Edit Data Sources</button><br>              
+              
+            </div>
+          </div>
+        </div>                
+      </div>
+
+    </div>
 
   </div>
 </admin-shell>
