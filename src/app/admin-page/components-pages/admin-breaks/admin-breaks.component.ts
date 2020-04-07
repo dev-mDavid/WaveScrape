@@ -13,6 +13,7 @@ import { database } from 'firebase';
 // Interfaces, Models
 import { RegionsByState, StringArray } from "../../../core/models/regionByState.model";
 import { BreaksByRegion } from "../../../core/models/breaksByRegion.model";
+import { BreakCurrent } from "../../../core/models/breaksCurrent.model";
 
 // Dialogs
 import { MatDialog } from "@angular/material/dialog";
@@ -30,9 +31,10 @@ export class AdminBreaksComponent implements OnInit, OnDestroy{
 
 regionsByStates: RegionsByState[];
 breaksByRegions: BreaksByRegion[];
+breaksCurrent: BreakCurrent[];
 sub: Subscription;
 // dialog: MatDialog;
-selectedBreak: string;
+selectedBreakName: string;
 
 boolBreakMapDocExists: boolean = false;
 boolBreakCurrentDocExists: boolean = false;
@@ -54,7 +56,8 @@ boolBreakCurrentDocExists: boolean = false;
         
   }
 
-  /**
+  /** showDetailsOfThisBreak
+   *
    * showDetailsOfThisBreak
      
       * breakInfo
@@ -77,27 +80,56 @@ boolBreakCurrentDocExists: boolean = false;
         * editDataSources
    */
 
-
+  testButton(){
+    // console.log(
+    //   this.breaksByRegions)
+  }
   
   showDetailsOfThisBreak(breakName: string){
-    this.breakInfo();
-    this.runBreakFeaturesCheck();
-    return this.selectedBreak = breakName;
+    // console.log(breakName);
+    // this.breakInfo();
+    this.runBreakFeaturesCheck(breakName);
+    return this.selectedBreakName = breakName;
   }
 
   breakInfo() { console.log('breakInfo')}
   
-  runBreakFeaturesCheck() { 
-    this.breakMapDocExists()
-    this.breakCurrentDocExists()
+  runBreakFeaturesCheck(selectedBreak: string) { 
+    // this.breakMapDocExists()
+    this.breakCurrentQuery( selectedBreak )
+    // this.breaksCurrentDocExists(selectedBreak)
+      // .subscribe(breaksCurrent => (this.breaksCurrent = breaksCurrent));  
   }
 
-  breakMapDocExists() { console.log('breakMapDocExists');}
+  // breakMapDocExists() { console.log('breakMapDocExists');}
+  
+  readBreakCurrentDocByBreak(){}
 
-  breakCurrentDocExists() { 
-    console.log('breakCurrentDocExists')
+  accessBreakCurrentDocByBreak(){}
+
+  breakCurrentQuery(breakValue: string) { 
+   return this.db.collection<BreakCurrent>("breaksCurrent", ref =>
+        ref.where('break', '==', breakValue))
+        .valueChanges();
+        
+
+    // console.log('breakCurrentDocExists')
     // this.boolBreakCurrentDocExists == false;
+
   }
+  breaksCurrentDocExists() {
+    // input:
+    //  #1 selected break from the 2nd column
+    //  #2 break value from breakCurrentDocExists
+
+    // output:
+    //  change bool value if true
+
+    // if (this.selectedBreakName === this.breakCurrentQuery.break) {
+    //   return boolBreakCurrentDocExists
+    // }
+  }
+
 
   
   

@@ -1,7 +1,7 @@
 export interface BreakCurrent {
-  id?: id;
-  breakName?: string;
-  regionName?: string;
+  id?: string;
+  break?: string;
+  region?: string;
   today?: Today[];
   tomorrow?: Tomorrow[];
 };

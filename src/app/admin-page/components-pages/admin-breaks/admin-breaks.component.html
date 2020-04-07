@@ -79,8 +79,8 @@
           <div *ngIf="(breaksByRegions.length === 1 )">
             <div *ngFor="let breakArrays of breaksByRegions">
 
-              {{selectedBreak}}<br>
-              <div *ngIf="(selectedBreak)">
+              {{selectedBreakName}}<br>
+              <div *ngIf="(selectedBreakName)">
                 <button>Edit Break Name</button><br>
                 <button>Change Region</button><br>
 
@@ -107,6 +107,9 @@
                   <button>Edit Data Sources</button><br>              
                 </div>
                 
+                <div *ngFor="let breakCurrent of breaksCurrent"
+                >{{breakCurrent.break}}</div>
+                <button (click)="testButton()">testButton</button>
               </div>
             </div>
           </div>

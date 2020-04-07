@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from "firebase/app";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { CurrentBreak } from "../../core/models/currentBreak.model";
+import { BreakCurrent } from "../../core/models/breaksCurrent.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class CurrentBreakService {
    */
   getCurrentBreakData(currentBreakId: string) {
     return this.db
-    .collection<CurrentBreak>('currentBreaks') // collection
+    .collection<BreakCurrent>('breaksCurrent') // collection
     .doc(currentBreakId)
     .valueChanges();    
   }

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
 
-import { CurrentBreak } from "../../../core/models/currentBreak.model";
+import { BreakCurrent } from "../../../core/models/breaksCurrent.model";
 import { CurrentBreakService } from "../../current-services/currentBreak.service";
 
 
@@ -14,7 +14,7 @@ import { CurrentBreakService } from "../../current-services/currentBreak.service
 })
 
 export class CurrentDataItemListComponent implements OnInit {        
-currentBreak: Observable<CurrentBreak>;
+  currentBreak: Observable<BreakCurrent>;
 
   constructor(    
     public currentBreakService: CurrentBreakService
