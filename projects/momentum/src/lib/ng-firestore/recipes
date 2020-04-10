@@ -1,0 +1,157 @@
+# Recipes for using Angular FireStore
+
+Quick Tips
++ Add id key to interface
+
+#### CRUD
+* Create
+* Read
+* Update
+* Delete
+
+
+---
++ Add a Value to an Array in a Doc
+---
+---
+## Find __Matching Values__ of a *parent* Doc's  Array-Value __and__ *child* Doc's Key-Value pair (*2–Parts*)
+
+### Part  1 — *Parent* Doc
+1. __Interface__ — Create interface and data model for *parent* doc
+*[[ interface ]]*
+
+2. __Properties__ — set properties  
+2–1. *parent* interface (with id) and  
+2–2. [rxjs] subscription  
+*[[ logic ]]*
+
+3. __Event Trigger from Specified Value__  
+3-1a. ~~on button click event~~  
+3-1b. set function call to be a subscription  
+3–3. destroy subscription in life-cycle hook OnDestroy  
+[[ template / logic ]]
+
+4. __Query service for *Parent* doc__   
+4–1. runs through *parent's* interface  
+4-2. queries a collection where  
+4–3. key equals a specified value  
+4–4a. if you __don't__ need to add/up the parent doc (array-values),   
+then use [angularfire] *valueChanges()*  
+4–4b. if you __do__ need to add/update the parent doc (array-values),  
+then use [angularfire] *snapChanges()* to get id and other metadata  
+*[[ services ]]*
+
+5. __Button Click__ — double for-loop to find the Matching Value for *its children* docs  
+5–1. ngFor *arrays* of *docs*  
+5–2. ngFor *values* of *arrays*  
+5–3. click event passing in a selected *value* as a parameter  
+5–4. function is a subscription of a query service   
+*[[ template ]]*
+
+### Part 2 — *Child* Doc
+
+6. __Interface__ — Create interface and data model for *child* doc  
+*[[ interface ]]*
+
+7. __Properties — set properties__  
+7–1. *child* interface (with id) and  
+7–2. [rxjs] subscription  
+*[[ logic ]]*
+
+8. __Event Trigger from *Parent* Matching Value__  
+8-1a. on button click event  
+8-1b. ~~set function call to be a subscription~~  
+8–2. destroy subscription in life-cycle hook OnDestroy  
+[[ template / logic ]]
+
+9. __*Child* Query Service__  
+9–1. runs through *child's* interface  
+9–2. queries a collection where    
+9–3. key equals the specified __matching value__ from the *parent*  
+9–4a. if you __don't__ need to add/update this *child* doc   (array-values) from *its children* docs, then use [angularfire] *valueChanges()* to get the id and other metadata  
+9–4b. if you __do__ need to add/update this *child* doc (array-values) from *its children* docs, then use [angularfire] *snapChanges()* to get the id and other metadata  
+*[[ services ]]*    
+*(optional)* — build service in the *[[ logic ]]* before moving it to the *[[ service ]]* directory
+
+
+10. __Button Click__ — double for-loop to find the Matching Value for *its children* docs  
+10–1. ngFor *arrays* of *docs*  
+10–2. ngFor *values* of *arrays*  
+10–3. click event passing in a selected *value* as a parameter  
+10–4. function is a subscription of a query service   
+[[ template ]]
+
+
+
+---
+---
+
+---
+
+Manipulate data on the Doc
+
+Of Queried-Value  
+show Doc Data
+
+Create New *parent* Doc  
+by adding an Array-Value
+
+---
+
++ Read the a Value from an Array from a Doc
++ Read a Doc
+
++ Read a Doc based on a Value from another Doc
++ Read a Doc based on a Matching Value from another
++ Reading a Value of from an Array in a Doc
+
+__Reading a single Value from a Key in a Doc__
+1. query that collection  
+1a. by Doc ID   
+1b. by key-value pair
+
+2. make it reactive  
+2a. observable  
+2b. subscription
+
+3. read object  
+3a. read object in the template/view  
+3b. create object in the logic and render it in the template/view
+---
+---
+#### General Naming Convention
+CRUD - Collection Name the Doc is From - Queried By
+
+---
+#### Create a New a Doc in a Collection by an Doc-ID
+Naming Convention:  
+create - collectionDocName - By ID  
+
+---
+#### Get a Doc from a Collection by a Key-Value (without MetaData)
+
+Naming Convention:  
+read - collectionDocName - By chosenValue — withOutMetaData  
+
+---
+#### Get a Doc from a Collection by a Key-Value (with MetaData)
+Naming Convention:  
+read - collectionDocName - By chosenValue — withMetaData  
+
+---
+#### 
+Naming Convention:  
+update - collectionDocName - By ID  
+
+---
+Naming Convention:  
+delete - collectionDocName - By ID  
+
+---
+get Doc Id — collectionDocName — By chosenValue  
+
+---
+accessRead - collectionDocName - By chosenValue
+
+---
+object data - collectionName (set Data as Object - from collectionDocName)
