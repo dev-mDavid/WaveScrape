@@ -1,100 +1,102 @@
 # Recipes for using Angular FireStore
+---
+### Quick Tips
++ Add id key to interfaces
++ Play with database before making interfaces
++ Develop the service in the logic before moving into the services directory
+---
+## Table of Contents:
 
-Quick Tips
-+ Add id key to interface
-
-#### CRUD
-* Create
-* Read
-* Update
-* Delete
-
+### Manipulating *Parent* Docs
++ Find Matching-Values of a *parent* Doc's Array-Value and *child* Doc's Key-Value pair
++ Dialog to add an Arrray-Value in a *parent* Doc
++ Prevent duplication  of multiple *children* Docs with same Query-Values when only one is expected
+### Manipulating *Children* Docs
++ Use *child* Interface to generate a new *child* Doc within an Array-Value of a *parent* Doc 
++ Dialog to delete Array-Value of *parent* Doc and related *children* Docs with Matching-Values
++ Query check for existing Doc with a Matching-Value
++ Dailog to manipulate data on a Doc
 
 ---
-+ Add a Value to an Array in a Doc
----
----
-## Find __Matching Values__ of a *parent* Doc's  Array-Value __and__ *child* Doc's Key-Value pair (*2–Parts*)
+## Find Matching-Values of a *parent* Doc's Array-Value and *child* Doc's Key-Value pair
 
-### Part  1 — *Parent* Doc
-1. __Interface__ — Create interface and data model for *parent* doc
-*[[ interface ]]*
+  Short-Version:   
+  For Parent, then Child —   
+  Interface, Properties, Event Trigger for Subscription,  Query Service, Double For-Loop for Button Click 
 
-2. __Properties__ — set properties  
-2–1. *parent* interface (with id) and  
-2–2. [rxjs] subscription  
-*[[ logic ]]*
+  ### Part  1: *Parent* Doc
+  1. __Interface__ — Create interface and data model for *parent* doc
+  *[[ interface ]]*
 
-3. __Event Trigger from Specified Value__  
-3-1a. ~~on button click event~~  
-3-1b. set function call to be a subscription  
-3–3. destroy subscription in life-cycle hook OnDestroy  
-[[ template / logic ]]
+  2. __Properties__ — set properties  
+  2–1. *parent* interface (with id) and  
+  2–2. [rxjs] subscription  
+  *[[ logic ]]*
 
-4. __Query service for *Parent* doc__   
-4–1. runs through *parent's* interface  
-4-2. queries a collection where  
-4–3. key equals a specified value  
-4–4a. if you __don't__ need to add/up the parent doc (array-values),   
-then use [angularfire] *valueChanges()*  
-4–4b. if you __do__ need to add/update the parent doc (array-values),  
-then use [angularfire] *snapChanges()* to get id and other metadata  
-*[[ services ]]*
+  3. __Event Trigger from Specified Value__  
+  3-1a. ~~on button click event~~  
+  3-1b. set function call to be a subscription  
+  3–3. destroy subscription in life-cycle hook OnDestroy  
+  [[ template / logic ]]
 
-5. __Button Click__ — double for-loop to find the Matching Value for *its children* docs  
-5–1. ngFor *arrays* of *docs*  
-5–2. ngFor *values* of *arrays*  
-5–3. click event passing in a selected *value* as a parameter  
-5–4. function is a subscription of a query service   
-*[[ template ]]*
+  4. __Query service for *Parent* doc__   
+  4–1. runs through *parent's* interface  
+  4-2. queries a collection where  
+  4–3. key equals a specified value  
+  4–4a. if you __don't__ need to add/up the parent doc (array-values),   
+  then use [angularfire] *valueChanges()*  
+  4–4b. if you __do__ need to add/update the parent doc (array-values),  
+  then use [angularfire] *snapChanges()* to get id and other metadata  
+  *[[ services ]]*
 
-### Part 2 — *Child* Doc
+  5. __Button Click__ — double for-loop to find the Matching Value for *its children* docs  
+  5–1. ngFor *arrays* of *docs*  
+  5–2. ngFor *values* of *arrays*  
+  5–3. click event passing in a selected *value* as a parameter  
+  5–4. function is a subscription of a query service   
+  *[[ template ]]*
 
-6. __Interface__ — Create interface and data model for *child* doc  
-*[[ interface ]]*
+  ### Part 2: *Child* Doc
 
-7. __Properties — set properties__  
-7–1. *child* interface (with id) and  
-7–2. [rxjs] subscription  
-*[[ logic ]]*
+  6. __Interface__ — Create interface and data model for *child* doc  
+  *[[ interface ]]*
 
-8. __Event Trigger from *Parent* Matching Value__  
-8-1a. on button click event  
-8-1b. ~~set function call to be a subscription~~  
-8–2. destroy subscription in life-cycle hook OnDestroy  
-[[ template / logic ]]
+  7. __Properties — set properties__  
+  7–1. *child* interface (with id) and  
+  7–2. [rxjs] subscription  
+  *[[ logic ]]*
 
-9. __*Child* Query Service__  
-9–1. runs through *child's* interface  
-9–2. queries a collection where    
-9–3. key equals the specified __matching value__ from the *parent*  
-9–4a. if you __don't__ need to add/update this *child* doc   (array-values) from *its children* docs, then use [angularfire] *valueChanges()* to get the id and other metadata  
-9–4b. if you __do__ need to add/update this *child* doc (array-values) from *its children* docs, then use [angularfire] *snapChanges()* to get the id and other metadata  
-*[[ services ]]*    
-*(optional)* — build service in the *[[ logic ]]* before moving it to the *[[ service ]]* directory
+  8. __Event Trigger from *Parent* Matching Value__  
+  8-1a. on button click event  
+  8-1b. ~~set function call to be a subscription~~  
+  8–2. destroy subscription in life-cycle hook OnDestroy  
+  [[ template / logic ]]
 
-
-10. __Button Click__ — double for-loop to find the Matching Value for *its children* docs  
-10–1. ngFor *arrays* of *docs*  
-10–2. ngFor *values* of *arrays*  
-10–3. click event passing in a selected *value* as a parameter  
-10–4. function is a subscription of a query service   
-[[ template ]]
+  9. __*Child* Query Service__  
+  9–1. runs through *child's* interface  
+  9–2. queries a collection where    
+  9–3. key equals the specified __matching value__ from the *parent*  
+  9–4a. if you __don't__ need to add/update this *child* doc   (array-values) from *its children* docs, then use [angularfire] *valueChanges()* to get the id and other metadata  
+  9–4b. if you __do__ need to add/update this *child* doc (array-values) from *its children* docs, then use [angularfire] *snapChanges()* to get the id and other metadata  
+  *[[ services ]]*    
+  *(optional)* — build service in the *[[ logic ]]* before moving it to the *[[ service ]]* directory
 
 
-
----
----
+  10. __Button Click__ — double for-loop to find the Matching Value for *its children* docs  
+  10–1. ngFor *arrays* of *docs*  
+  10–2. ngFor *values* of *arrays*  
+  10–3. click event passing in a selected *value* as a parameter  
+  10–4. function is a subscription of a query service   
+  [[ template ]]
 
 ---
+## Dialog to add an Array-Value in a *parent* Doc
 
-Manipulate data on the Doc
-
-Of Queried-Value  
-show Doc Data
-
-Create New *parent* Doc  
-by adding an Array-Value
+0. on click event of the *child*, capture that Matching-Value to Array-Value of the *parent* Doc
+0. with that Matching-Value, make query of *parent* Collection to retrieve data that includes the *parent* Doc Id 
+0. pass that data from matching *parent* Doc into a dialog
+0. open dialog on button click event
+0. if new data added, on dialog close, update and add an Array-Value to the matching *parent* doc
 
 ---
 
@@ -119,39 +121,3 @@ __Reading a single Value from a Key in a Doc__
 3b. create object in the logic and render it in the template/view
 ---
 ---
-#### General Naming Convention
-CRUD - Collection Name the Doc is From - Queried By
-
----
-#### Create a New a Doc in a Collection by an Doc-ID
-Naming Convention:  
-create - collectionDocName - By ID  
-
----
-#### Get a Doc from a Collection by a Key-Value (without MetaData)
-
-Naming Convention:  
-read - collectionDocName - By chosenValue — withOutMetaData  
-
----
-#### Get a Doc from a Collection by a Key-Value (with MetaData)
-Naming Convention:  
-read - collectionDocName - By chosenValue — withMetaData  
-
----
-#### 
-Naming Convention:  
-update - collectionDocName - By ID  
-
----
-Naming Convention:  
-delete - collectionDocName - By ID  
-
----
-get Doc Id — collectionDocName — By chosenValue  
-
----
-accessRead - collectionDocName - By chosenValue
-
----
-object data - collectionName (set Data as Object - from collectionDocName)
