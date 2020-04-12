@@ -27,9 +27,7 @@
               "apps/WaveScrape/src/favicon.ico",
               "apps/WaveScrape/src/assets"
             ],
-            "styles": [
-              "apps/WaveScrape/src/styles.scss"
-            ],
+            "styles": ["apps/WaveScrape/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -91,9 +89,7 @@
               "apps/WaveScrape/src/favicon.ico",
               "apps/WaveScrape/src/assets"
             ],
-            "styles": [
-              "apps/WaveScrape/src/styles.scss"
-            ],
+            "styles": ["apps/WaveScrape/src/styles.scss"],
             "scripts": []
           }
         },
@@ -104,9 +100,7 @@
               "apps/WaveScrape/tsconfig.app.json",
               "apps/WaveScrape/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "deploy": {
@@ -148,9 +142,7 @@
               "projects/momentum/tsconfig.lib.json",
               "projects/momentum/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -175,9 +167,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/WaveScrape-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -185,6 +175,16 @@
   },
   "defaultProject": "WaveScrape",
   "cli": {
-    "analytics": "9ed057e7-51ce-4560-bf63-a890a11925e1"
+    "analytics": "9ed057e7-51ce-4560-bf63-a890a11925e1",
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
   }
 }
