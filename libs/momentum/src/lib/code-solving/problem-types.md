@@ -23,8 +23,10 @@
 
 ---
 # Algorithmic (Space / Time Complexity) 
-* Solve a simpler promblem
-* Break the promblem down
++ Solve a simpler promblem
++ Break the promblem down
++ Understand what are givens
++ For brainteasers: utilize all clues
 
 ---
 # Data Structure

@@ -79,11 +79,14 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
+            "jestConfig": "apps/WaveScrape/jest.config.js",
+            "tsConfig": "apps/WaveScrape/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/WaveScrape/src/test-setup.ts",
             "main": "apps/WaveScrape/src/test.ts",
             "polyfills": "apps/WaveScrape/src/polyfills.ts",
-            "tsConfig": "apps/WaveScrape/tsconfig.spec.json",
             "karmaConfig": "apps/WaveScrape/karma.conf.js",
             "assets": [
               "apps/WaveScrape/src/favicon.ico",
