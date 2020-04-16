@@ -37,18 +37,18 @@ Find Matching-Values of a parent Doc's Array-Value and child Doc's Key-Value pai
    2. subscription
 3. Set Subscriptions 
    1. On Initialization, subscribe to the a service to read region doc   
-  __🧪 UT__: service exists  
-  __🧪 UT__: service happens on initialization
+  __🧪 UT__: service *exists*  
+  __🧪 UT__: service *happens* on initialization
    1. On Destroy, destroy the subscription   
-   __🧪 UT__: destroy happens
+   __🧪 UT__: destroy *happens*
 4. Define service to read docs from __RegionsByState *collection*__  
-__🧪 UT__: outputs expected results
+__🧪 UT__: outputs *expected* results
    1. run through the region  __RegionsByState *interface*__
    2. query the __regionsByState *collection*__ where state (key) is equal to stateValue
    3. set stateValue to equal "California"
    4. use *valueChanges()*
 5. When click on selected region, double for-loop to find the breaks  
-__🧪 UT__: outputs expected results
+__🧪 UT__: outputs *expected* results
    1. ngFor *arrays* of *docs* (shows the array of breaks for each region doc)
    2. ngFor *values* of *arrays* (shows the breaks of each array)
 

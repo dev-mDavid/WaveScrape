@@ -1,16 +1,20 @@
-import { TestBed } from '@angular/core/testing';
+// import { TestBed } from '@angular/core/testing';
 
 import { CurrentBreakService } from './currentBreak.service';
 
-describe('CurrentBreaksService', () => {
-  let service: CurrentBreakService;
+it('should exist', () => {
+  expect(CurrentBreakService).toBeTruthy();
+})
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(CurrentBreakService);
-  });
+// describe('CurrentBreaksService', () => {
+//   let service: CurrentBreakService;
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({});
+//     service = TestBed.inject(CurrentBreakService);
+//   });
+
+//   it('should be created', () => {
+//     expect(service).toBeTruthy();
+//   });
+// });
