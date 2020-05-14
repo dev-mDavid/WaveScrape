@@ -2,7 +2,7 @@
 
 import { AdminBreaksService } from './admin-breaks.service';
 
-it('should be exist', () => {
+it('should exist', () => {
   expect(AdminBreaksService).toBeTruthy();
 });
 

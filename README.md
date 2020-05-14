@@ -1,5 +1,15 @@
 # WaveScrape
 
+This project is deprecated for this repo.   
+An updated version of this project can be found at https://github.com/dev-mDavid/wavescrape-workspace.  
+
+I migrated this project into a pre-configured monorepo by Nrwl. This setup allows faster testing with modern tools (i.e. Jest and Cypress).
+
+## History
+You can see project's history (before the migration) in this repo.
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
